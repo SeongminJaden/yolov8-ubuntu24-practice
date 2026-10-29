@@ -29,3 +29,7 @@ Ubuntu 24.04 x86_64, RTX 5060 Laptop GPU 8GB, driver 595.99.02에서 실행했�
 기본 TF32 엔진의 엄격한 수치 비교는 실패해 noTF32로 재생성했습니다. 기준을 완화하지 않았으며 `precision-note.json`에 기록했습니다. 퍽 ROS 상자는 NVIDIA decoder의 `cv::Rect<int>` 절삭 때문에 소수점 PyTorch 상자와 1~2px 차이가 납니다. 공식 소스와 같은 변환을 적용하면 정확히 일치하며, 변환 전 IoU도 보고서에 남겼습니다.
 
 모델 가중치·ONNX·TensorRT 엔진·데이터는 대용량 로컬 산출물로 Git에서 제외했습니다. README 명령으로 재생성할 수 있습니다. TensorRT 엔진은 대상 GPU에서 다시 생성해야 합니다.
+
+## Isaac Sim 추가 검증
+
+실제 RTX 데이터 생성(160/40/80장), 50 epoch 학습, 조건별 시험, 120프레임 영상 추적, Sim 모델 TensorRT 수치 비교와 native Sim→ROS 연결을 완료했습니다. CPU 테스트는 16개 통과했습니다. [전체 평가](SIM_EVALUATION.md)를 참고하세요. RealSense 실제 연결은 향후 진행하며 [연결 안내](../docs/REALSENSE.md)를 제공합니다.

@@ -1,0 +1,16 @@
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0004.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0009.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0014.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0019.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0024.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0029.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0034.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0039.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0044.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0049.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0054.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0059.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0064.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0069.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0074.png
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0079.png

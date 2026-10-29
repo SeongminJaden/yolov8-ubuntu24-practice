@@ -1,0 +1,872 @@
+{
+  "status": "completed",
+  "weights": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.pt",
+  "data": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/dataset.yaml",
+  "device": "0",
+  "integrity": {
+    "sha256_cross_split_duplicates": [],
+    "image_counts": {
+      "train": 160,
+      "val": 40,
+      "test": 80
+    },
+    "session_check": "checked",
+    "session_cross_split_duplicates": [],
+    "manifest_errors": [],
+    "passed": true
+  },
+  "scope": "Rendered simulation test split; not evidence of real-camera accuracy.",
+  "metrics": {
+    "precision": 0.6698465753424102,
+    "recall": 0.5694444444444444,
+    "mAP50": 0.5504199350008043,
+    "mAP50_95": 0.45892924399300516,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "red_cylinder",
+        "precision": 0.571614636968833,
+        "recall": 0.8194444444444444,
+        "mAP50": 0.5443024023518745,
+        "mAP50_95": 0.4518852633094972
+      },
+      {
+        "class_id": 1,
+        "name": "red_prism",
+        "precision": 0.8760505867658926,
+        "recall": 0.3333333333333333,
+        "mAP50": 0.5696376944417574,
+        "mAP50_95": 0.4779898604541456
+      },
+      {
+        "class_id": 2,
+        "name": "green_cylinder",
+        "precision": 0.37384608466603436,
+        "recall": 0.9166666666666666,
+        "mAP50": 0.6483579063977143,
+        "mAP50_95": 0.5439717767932214
+      },
+      {
+        "class_id": 3,
+        "name": "green_prism",
+        "precision": 0.857874992968881,
+        "recall": 0.20833333333333334,
+        "mAP50": 0.43938173681187126,
+        "mAP50_95": 0.36187007541515687
+      }
+    ],
+    "note": "Per-class values are reported only for evaluated ground-truth classes."
+  },
+  "latency": {
+    "count": 80,
+    "p50_ms": 5.41360250008438,
+    "p95_ms": 6.117083649996857,
+    "mean_ms": 5.454866362495636,
+    "fps": 183.32254789510438,
+    "warmup_frames_excluded": 3,
+    "scope": "Sequential file-input predict wall time including decode, preprocess, inference and postprocess; excluding plotting and saving.",
+    "prediction_confidence": 0.25,
+    "samples_seconds": [
+      0.004913451999982499,
+      0.0055990460000430176,
+      0.005765562000078717,
+      0.005663874999981999,
+      0.006010784000181957,
+      0.005872876000012184,
+      0.0061282300000584655,
+      0.005314134000172999,
+      0.006888414000059129,
+      0.00569793399995433,
+      0.006324748999986696,
+      0.0054570949998833385,
+      0.005641997999873638,
+      0.005392243999949642,
+      0.00572235599997839,
+      0.005364794999877631,
+      0.005618885999865597,
+      0.004705834000105824,
+      0.005885274000092977,
+      0.0068632489999345125,
+      0.005872017000001506,
+      0.005442597999945065,
+      0.00501288200007366,
+      0.005074823000086326,
+      0.005677799000068262,
+      0.005749379000008048,
+      0.005146078000052512,
+      0.005386977999933151,
+      0.0052582759999495465,
+      0.005441409000013664,
+      0.006106077999902482,
+      0.005352613000013662,
+      0.005006748999903721,
+      0.005963136999980634,
+      0.005096683999909146,
+      0.005621385000040391,
+      0.005044111000188423,
+      0.005462655999963317,
+      0.0054034120000778785,
+      0.006116496999993615,
+      0.0054076500000519445,
+      0.005294045000027836,
+      0.004993146999822784,
+      0.005307565999828512,
+      0.004462605999833613,
+      0.005281930999899487,
+      0.005234974999893893,
+      0.005419555000116816,
+      0.005503302000079202,
+      0.005587427000136813,
+      0.005331157999989955,
+      0.0054965429999356274,
+      0.005192694000015763,
+      0.0055756509998445836,
+      0.005715545000157363,
+      0.0057648580000204674,
+      0.005791771000076551,
+      0.005445826999903147,
+      0.005544007000025886,
+      0.00562330100001418,
+      0.00572645400006877,
+      0.00539523299994471,
+      0.004698236999956862,
+      0.005405244000030507,
+      0.0053391689998534275,
+      0.005110846999968999,
+      0.004888899999968999,
+      0.004901797999991686,
+      0.005489591000014116,
+      0.005590739999888683,
+      0.00509986400015805,
+      0.00535481399992932,
+      0.0052259719998346554,
+      0.005569787000013093,
+      0.0050942340001256525,
+      0.005185661000041364,
+      0.005117046000123082,
+      0.004668412000000899,
+      0.005229011999972499,
+      0.0052583869999125454
+    ]
+  },
+  "predictions": [
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0000.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0001.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0002.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0003.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0004.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0005.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0006.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0007.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0008.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0009.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0010.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0011.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0012.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0013.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0014.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0015.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0016.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0017.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0018.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0019.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0020.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0021.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0022.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0023.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0024.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0025.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0026.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0027.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0028.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0029.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0030.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0031.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0032.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0033.png",
+      "detections": 1,
+      "ground_truth_objects": 0,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0034.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0035.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0036.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0037.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0038.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0039.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0040.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0041.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0042.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0043.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0044.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0045.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0046.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0047.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0048.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0049.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0050.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0051.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0052.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0053.png",
+      "detections": 5,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0054.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0055.png",
+      "detections": 1,
+      "ground_truth_objects": 0,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0056.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0057.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0058.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0059.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0060.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0061.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0062.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0063.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0064.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0065.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0066.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0067.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0068.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0069.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0070.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0071.png",
+      "detections": 0,
+      "ground_truth_objects": 4,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0072.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0073.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0074.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0075.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0076.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0077.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0078.png",
+      "detections": 1,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1/images/test/0079.png",
+      "detections": 2,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0
+      ]
+    }
+  ],
+  "counts": {
+    "test_images": 80,
+    "detections": 162,
+    "ground_truth_objects": 288,
+    "negative_images": 8,
+    "negative_images_with_false_positives": 2,
+    "images_with_detections": 68
+  }
+}

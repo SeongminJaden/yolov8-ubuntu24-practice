@@ -2,6 +2,14 @@
 
 [원문 설치 가이드](https://velog.io/@roboticsmaster/Ubuntu-24.04-YOLOv8-실습-설치-가이드)의 학습 흐름을 실행 가능한 스크립트로 새로 구현했습니다. 원문에서 언급한 배포 ZIP은 제공되지 않았으므로 그 ZIP의 코드나 12개 테스트를 복제한 저장소가 아닙니다.
 
+## Isaac Sim 평가와 카메라 연결
+
+실제 Isaac Sim 렌더 데이터로 50 epoch 학습과 전체 평가를 완료했습니다. 독립 시험 mAP50 **0.995**, mAP50–95 **0.973**, native Sim → Isaac ROS 카메라·검출 수신까지 확인했습니다.
+
+- [전체 평가 결과와 근거](reports/SIM_EVALUATION.md)
+- [Isaac Sim 데이터 생성·학습·영상 평가·ROS 실행](docs/ISAAC_SIM.md)
+- [향후 Intel RealSense 연결·수집 방법](docs/REALSENSE.md) — 실제 장비 검증은 연결 후 진행
+
 ## 설치
 
 Ubuntu 24.04 / Python 3.12 / NVIDIA GPU 기준입니다. Python venv와 시스템 라이브러리가 준비된 상태에서:

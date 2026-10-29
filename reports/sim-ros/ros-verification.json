@@ -1,0 +1,134 @@
+{
+  "detection_messages": 1182,
+  "detections": 4728,
+  "rendered_images": 369,
+  "topics": {
+    "/parameter_events": [
+      "rcl_interfaces/msg/ParameterEvent"
+    ],
+    "/pucks/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/pucks/detections": [
+      "vision_msgs/msg/Detection2DArray"
+    ],
+    "/pucks/encoded_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/pucks/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks/image/_buf/010f70cdbd1e91a80000000000002e04": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks/inference_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/pucks/processed_image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks/processed_image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/converted/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/converted/image/_buf/010f70cdbd1e91a80000000000006a04": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/converted/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/crop/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/pucks_encoder/crop/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/crop/image/_buf/010f70cdbd1e91a80000000000008004": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/crop/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/image_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/pucks_encoder/normalized_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/pucks_encoder/planar_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/pucks_encoder/resize/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/pucks_encoder/resize/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/resize/image/_buf/010f70cdbd1e91a80000000000005604": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/pucks_encoder/resize/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/rosout": [
+      "rcl_interfaces/msg/Log"
+    ]
+  },
+  "first_detections": [
+    {
+      "center_x": 284.0,
+      "center_y": 392.0,
+      "width": 46.0,
+      "height": 48.0,
+      "hypotheses": [
+        {
+          "class_id": "2",
+          "score": 0.9910296201705933
+        }
+      ]
+    },
+    {
+      "center_x": 209.5,
+      "center_y": 264.5,
+      "width": 57.0,
+      "height": 59.0,
+      "hypotheses": [
+        {
+          "class_id": "3",
+          "score": 0.9818041324615479
+        }
+      ]
+    },
+    {
+      "center_x": 422.0,
+      "center_y": 361.5,
+      "width": 38.0,
+      "height": 39.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.9797906279563904
+        }
+      ]
+    },
+    {
+      "center_x": 428.0,
+      "center_y": 246.0,
+      "width": 68.0,
+      "height": 64.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.9778870940208435
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 40.00672156099972,
+  "detection_topic": "/pucks/detections"
+}

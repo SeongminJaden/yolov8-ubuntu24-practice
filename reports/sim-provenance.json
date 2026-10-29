@@ -1,0 +1,6 @@
+{
+  "runs/detect/isaac_pucks_v1/weights/best.pt": "0b429325f8c4c6a89f01d19b837accb055637509dbf613e0b2ade8fcc4aaf4a1",
+  "models/isaac_pucks.onnx": "da22d6f7e266fe8b4d1cf4446de197ec8fe838a915f69f1e3e0c554c1820cd30",
+  "data/isaac-pucks-v1/manifest.json": "256eb19802ce5d4f2c8b0d9bdf84e08dc2d8786938a434b1d381d13b374ef4ea",
+  "sim/generate_dataset.py": "915276190e9397eda0bc9d2e929e629e96d317ea3d70b53c6a5c001f5073c262"
+}

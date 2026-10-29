@@ -1,0 +1,355 @@
+#usda 1.0
+(
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxSettingsParticleFieldAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                int omni:rtx:pt:clampSpp = 64
+                uint omni:rtx:pt:limits:maxBounces = 3
+                uint omni:rtx:pt:limits:maxGlossyBounces = 3
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                int omni:rtx:pt:samplesPerIteration = 64
+                uint omni:rtx:pt:samplesPerPixel = 64
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:ecoMode:enabled = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (640, 640)
+            }
+
+            def RenderProduct "Replicator" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxSettingsParticleFieldAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </World/Camera>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                int omni:rtx:pt:clampSpp = 64
+                uint omni:rtx:pt:limits:maxBounces = 3
+                uint omni:rtx:pt:limits:maxGlossyBounces = 3
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                int omni:rtx:pt:samplesPerIteration = 64
+                uint omni:rtx:pt:samplesPerPixel = 64
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:ecoMode:enabled = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (640, 640)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = [
+            </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>,
+            </Render/OmniverseKit/HydraTextures/Replicator>,
+        ]
+    }
+
+    def "Vars" (
+        hide_in_stage_window = true
+        no_delete = true
+    )
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+            uniform token sourceType = "raw"
+        }
+    }
+}
+
+over "OmniverseKit_Persp"
+{
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+}
+
+def Xform "World"
+{
+    def Cube "Table" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </World/TableMaterial>
+        double size = 1
+        matrix4d xformOp:transform = ( (1.8, 0, 0, 0), (0, 1.5, 0, 0), (0, 0, 0.025, 0), (0, 0, -0.0125, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+
+    def Material "TableMaterial"
+    {
+        token outputs:surface.connect = </World/TableMaterial/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.38841927, 0.3689983, 0.34957734)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Cylinder "red_cylinder" (
+        prepend apiSchemas = ["MaterialBindingAPI", "SemanticsLabelsAPI:class"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.045
+        rel material:binding = </World/Mat0>
+        double radius = 0.065
+        token[] semantics:labels:class = ["red_cylinder"]
+        token visibility = "inherited"
+        matrix4d xformOp:transform = ( (0.691191659122939, 0.2939056747064835, 0, 0), (-0.2939056747064835, 0.691191659122939, 0, 0), (0, 0, 0.7510835208322669, 0), (0.24512919965356195, -0.16165220459769358, 0.03, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+
+    def Material "Mat0"
+    {
+        token outputs:surface.connect = </World/Mat0/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.7, 0.025, 0.02)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Cube "red_prism" (
+        prepend apiSchemas = ["MaterialBindingAPI", "SemanticsLabelsAPI:class"]
+    )
+    {
+        rel material:binding = </World/Mat1>
+        token[] semantics:labels:class = ["red_prism"]
+        double size = 1
+        token visibility = "inherited"
+        float3 xformOp:scale = (0.115, 0.115, 0.055)
+        matrix4d xformOp:transform = ( (0.06868443894188808, -0.11157015339422115, 0, 0), (0.11157015339422115, 0.06868443894188808, 0, 0), (0, 0, 0.06266029885797934, 0), (0.3138026191953733, 0.20056820749587145, 0.03, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+
+    def Material "Mat1"
+    {
+        token outputs:surface.connect = </World/Mat1/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.7, 0.025, 0.02)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Cylinder "green_cylinder" (
+        prepend apiSchemas = ["MaterialBindingAPI", "SemanticsLabelsAPI:class"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.045
+        rel material:binding = </World/Mat2>
+        double radius = 0.065
+        token[] semantics:labels:class = ["green_cylinder"]
+        token visibility = "inherited"
+        matrix4d xformOp:transform = ( (0.41710160017666936, 0.7976656524459875, 0, 0), (-0.7976656524459875, 0.41710160017666936, 0, 0), (0, 0, 0.900135677529794, 0), (-0.09982523802642757, -0.22743637232859115, 0.03, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+
+    def Material "Mat2"
+    {
+        token outputs:surface.connect = </World/Mat2/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.025, 0.5, 0.035)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Cube "green_prism" (
+        prepend apiSchemas = ["MaterialBindingAPI", "SemanticsLabelsAPI:class"]
+    )
+    {
+        rel material:binding = </World/Mat3>
+        token[] semantics:labels:class = ["green_prism"]
+        double size = 1
+        token visibility = "inherited"
+        float3 xformOp:scale = (0.115, 0.115, 0.055)
+        matrix4d xformOp:transform = ( (0.12299940889425812, 0.029345875876111874, 0, 0), (-0.029345875876111874, 0.12299940889425812, 0, 0), (0, 0, 0.06047690489106024, 0), (-0.28390463898912993, 0.17679155262086543, 0.03, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+
+    def Material "Mat3"
+    {
+        token outputs:surface.connect = </World/Mat3/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.025, 0.5, 0.035)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Sphere "Distractor0" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </World/DistractorMat0>
+        double radius = 0.045
+        double3 xformOp:translate = (0.023719840965667593, 0.15170802162688146, 0.04)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Material "DistractorMat0"
+    {
+        token outputs:surface.connect = </World/DistractorMat0/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.03, 0.08, 0.4)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def Sphere "Distractor1" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </World/DistractorMat1>
+        double radius = 0.045
+        double3 xformOp:translate = (0.18726811625791173, -0.12650147146563942, 0.04)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Material "DistractorMat1"
+    {
+        token outputs:surface.connect = </World/DistractorMat1/Shader.outputs:surface>
+
+        def Shader "Shader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.4, 0.35, 0.25)
+            float inputs:roughness = 0.55
+            token outputs:surface
+        }
+    }
+
+    def DomeLight "Dome"
+    {
+        float inputs:intensity = 661.13965
+    }
+
+    def DistantLight "Sun"
+    {
+        float inputs:angle = 8
+        float inputs:intensity = 1322.2793
+        float3 xformOp:rotateXYZ = (20, -30, 25)
+        uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+    }
+
+    def Camera "Camera" (
+        prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    )
+    {
+        float2 clippingRange = (0.01, 100)
+        float exposure:fStop = 5
+        float exposure:responsivity = 1.1026709
+        float exposure:time = 0.02
+        float focalLength = 24
+        float horizontalAperture = 20.955
+        float verticalAperture = 20.955
+        matrix4d xformOp:transform = ( (0.9978696712864306, -0.06523893873072345, 3.469446951953615e-18, 0), (0.05473695070035649, 0.837235308625024, 0.5440964107762407, 0), (-0.035496272406237706, -0.542937306569414, 0.839022702780093, 0), (-0.06864712661218561, -1.05, 1.6226069331753796, 0.9999999999999998) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["NewtonSceneAPI", "PhysxSceneAPI"]
+)
+{
+}
+

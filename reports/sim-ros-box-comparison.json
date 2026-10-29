@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "pytorch_boxes": 4,
+  "ros_boxes": 4,
+  "matches": [
+    {
+      "class_id": 2,
+      "decoder_adjusted_iou": 1.0,
+      "float_reference_iou": 0.9263062260507003
+    },
+    {
+      "class_id": 0,
+      "decoder_adjusted_iou": 1.0,
+      "float_reference_iou": 0.9570644377314109
+    },
+    {
+      "class_id": 3,
+      "decoder_adjusted_iou": 1.0,
+      "float_reference_iou": 0.9383884689012171
+    },
+    {
+      "class_id": 1,
+      "decoder_adjusted_iou": 1.0,
+      "float_reference_iou": 0.9527008766597608
+    }
+  ],
+  "minimum_decoder_adjusted_iou": 0.99,
+  "reference": "release-5.0 cv::Rect<int> truncation"
+}

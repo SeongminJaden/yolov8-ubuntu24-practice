@@ -1,0 +1,59 @@
+[INFO] [launch]: All log files can be found below /home/admin/.ros/log/2026-10-29-13-18-16-058246-ros-7848
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container_mt-1]: process started with pid [7869]
+[INFO] [python3-2]: process started with pid [7870]
+[component_container_mt-1] [WARN] [1793247496.115136881] [component_container_mt]: This executable is deprecated and will be removed in M-turtle.
+[component_container_mt-1] Use 'component_container --executor-type multi-threaded' instead.
+[component_container_mt-1] [INFO] [1793247496.355458791] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libtensor_rt_node.so
+[component_container_mt-1] [INFO] [1793247496.391201943] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::TensorRTNode>
+[component_container_mt-1] [INFO] [1793247496.391262489] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::TensorRTNode>
+[component_container_mt-1] [INFO] [1793247496.565749966] [pucks_tensor_rt]: Initializing TensorRT engine...
+[component_container_mt-1] [INFO] [1793247496.579486223] [TRT]: TRT INFO: Loaded engine size: 15 MiB
+[component_container_mt-1] [INFO] [1793247496.605550596] [pucks_tensor_rt]: Loaded TensorRT engine from file: /workspaces/isaac_ros-dev/isaac_ros_assets/models/pucks/isaac_pucks.plan successfully
+[component_container_mt-1] [INFO] [1793247496.606116224] [TRT]: TRT INFO: [MS] Running engine with multi stream info
+[component_container_mt-1] [INFO] [1793247496.606121512] [TRT]: TRT INFO: [MS] Number of aux streams is 2
+[component_container_mt-1] [INFO] [1793247496.606123141] [TRT]: TRT INFO: [MS] Number of total worker streams is 3
+[component_container_mt-1] [INFO] [1793247496.606124765] [TRT]: TRT INFO: [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[component_container_mt-1] [INFO] [1793247496.640447877] [TRT]: TRT INFO: [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +28, now: CPU 0, GPU 42 (MiB)
+[component_container_mt-1] [INFO] [1793247496.640474530] [pucks_tensor_rt]: Number of CUDA bindings: 2
+[component_container_mt-1] [INFO] [1793247496.640502512] [pucks_tensor_rt]: Tensor name images: Format Row major linear FP32 format (kLINEAR)
+[component_container_mt-1] [INFO] [1793247496.640506029] [pucks_tensor_rt]: Tensor name output0: Format Row major linear FP32 format (kLINEAR)
+[component_container_mt-1] [INFO] [1793247496.640508154] [pucks_tensor_rt]: TensorRT engine initialized successfully
+[component_container_mt-1] [INFO] [1793247496.642486733] [pucks_tensor_rt]: [TensorRTNode] TensorRT Node initialized successfully
+[component_container_mt-1] [INFO] [1793247496.642676041] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libresize_node.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_tensor_rt' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.645491175] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ResizeNode>
+[component_container_mt-1] [INFO] [1793247496.645513864] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ResizeNode>
+[component_container_mt-1] [INFO] [1793247496.650069499] [pucks_encoder.resize_node]: [ResizeNode] ResizeNode initialized
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/resize_node' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.650200579] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libyolov8_decoder_node.so
+[component_container_mt-1] [INFO] [1793247496.655565378] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::yolov8::YoloV8DecoderNode>
+[component_container_mt-1] [INFO] [1793247496.655583721] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::yolov8::YoloV8DecoderNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_decoder' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.658897481] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libimage_format_converter_node.so
+[component_container_mt-1] [INFO] [1793247496.659954666] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ImageFormatConverterNode>
+[component_container_mt-1] [INFO] [1793247496.659965212] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ImageFormatConverterNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/image_format_converter_node' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.663877236] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libcrop_node.so
+[component_container_mt-1] [INFO] [1793247496.665253933] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::CropNode>
+[component_container_mt-1] [INFO] [1793247496.665264821] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::CropNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/crop_node' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.669670771] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libimage_to_tensor_node.so
+[component_container_mt-1] [INFO] [1793247496.670578107] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageToTensorNode>
+[component_container_mt-1] [INFO] [1793247496.670588128] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageToTensorNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/image_to_tensor' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.675676017] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libimage_tensor_normalize_node.so
+[component_container_mt-1] [INFO] [1793247496.676670279] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageTensorNormalizeNode>
+[component_container_mt-1] [INFO] [1793247496.676701872] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageTensorNormalizeNode>
+[component_container_mt-1] [INFO] [1793247496.683625793] [pucks_encoder.normalize_node]: [ImageTensorNormalizeNode] Setup complete
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/normalize_node' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.684780437] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libinterleaved_to_planar_node.so
+[component_container_mt-1] [INFO] [1793247496.685755697] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::InterleavedToPlanarNode>
+[component_container_mt-1] [INFO] [1793247496.685765653] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::InterleavedToPlanarNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/interleaved_to_planar_node' in container '/pucks_container'
+[component_container_mt-1] [INFO] [1793247496.689791539] [pucks_container]: Load Library: /opt/ros/lyrical/lib/libreshape_node.so
+[component_container_mt-1] [INFO] [1793247496.690669797] [pucks_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ReshapeNode>
+[component_container_mt-1] [INFO] [1793247496.690679319] [pucks_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ReshapeNode>
+[component_container_mt-1] [INFO] [1793247496.693590754] [pucks_encoder.reshape_node]: [ReshapeNode] Setup complete
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/pucks_encoder/reshape_node' in container '/pucks_container'
+[component_container_mt-1] [WARN] [1793247502.184316495] [pucks_encoder.image_format_converter_node]: Input encoding 'rgb8' already matches desired encoding. Passing through without conversion.

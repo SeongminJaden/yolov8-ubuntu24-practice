@@ -1,0 +1,46 @@
+{
+  "weights": "runs/detect/isaac_pucks_v1/weights/best.pt",
+  "scope": "Same held-out test split grouped by predeclared condition",
+  "conditions": {
+    "bright": {
+      "images": 16,
+      "objects": 56,
+      "precision": 0.994146223869664,
+      "recall": 0.9859011273474518,
+      "mAP50": 0.995,
+      "mAP50_95": 0.9730890562652725
+    },
+    "dark": {
+      "images": 16,
+      "objects": 56,
+      "precision": 0.9958372884679184,
+      "recall": 1.0,
+      "mAP50": 0.995,
+      "mAP50_95": 0.9794129910884504
+    },
+    "low_angle": {
+      "images": 16,
+      "objects": 60,
+      "precision": 0.995571000333194,
+      "recall": 1.0,
+      "mAP50": 0.995,
+      "mAP50_95": 0.9808021160714286
+    },
+    "normal": {
+      "images": 16,
+      "objects": 56,
+      "precision": 0.9957800723967088,
+      "recall": 1.0,
+      "mAP50": 0.995,
+      "mAP50_95": 0.9824730206349205
+    },
+    "occlusion": {
+      "images": 16,
+      "objects": 60,
+      "precision": 0.9888523975121237,
+      "recall": 1.0,
+      "mAP50": 0.995,
+      "mAP50_95": 0.9539330724127497
+    }
+  }
+}

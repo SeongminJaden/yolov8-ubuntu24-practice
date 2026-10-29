@@ -1,0 +1,9 @@
+names:
+  0: red_cylinder
+  1: red_prism
+  2: green_cylinder
+  3: green_prism
+path: /home/seongmin/Projects/yolov8-ubuntu24-practice/data/isaac-pucks-v1
+test: /home/seongmin/Projects/yolov8-ubuntu24-practice/reports/sim-conditions/dark.txt
+train: images/train
+val: images/val

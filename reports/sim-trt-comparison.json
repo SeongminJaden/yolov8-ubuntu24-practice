@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "shape": [
+    1,
+    8,
+    8400
+  ],
+  "max_absolute_error": 0.00095367431640625,
+  "mean_absolute_error": 7.273667142726481e-05,
+  "rtol": 0.001,
+  "atol": 0.01
+}
