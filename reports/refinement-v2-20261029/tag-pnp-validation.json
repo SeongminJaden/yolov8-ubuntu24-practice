@@ -1,0 +1,18 @@
+[
+  {
+    "window": 0,
+    "total": 724,
+    "matches": 670,
+    "unexpected_ids": 1,
+    "median_mm": 8.123342125238537,
+    "p95_mm": 16.115641103582675
+  },
+  {
+    "window": 1,
+    "total": 724,
+    "matches": 670,
+    "unexpected_ids": 1,
+    "median_mm": 8.102203268162926,
+    "p95_mm": 16.208209062096962
+  }
+]

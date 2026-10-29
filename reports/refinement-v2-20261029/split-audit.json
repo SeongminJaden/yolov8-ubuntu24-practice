@@ -1,0 +1,13 @@
+{
+  "images": {
+    "train": 2400,
+    "val": 200,
+    "test": 300
+  },
+  "overlap": 0,
+  "new_seed_range": [
+    500000,
+    501099
+  ],
+  "scope": "Old test is excluded from further training; fresh test not used for selection."
+}

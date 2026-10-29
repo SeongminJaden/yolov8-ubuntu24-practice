@@ -44,6 +44,32 @@ class TaggedPoseTests(unittest.TestCase):
             result=combine(None,model,None,None,prism_tag_mount='six_faces')
             self.assertTrue(all(o['apriltag'] is None for o in result['objects']))
 
+    def test_tta_aligns_whole_symmetric_corner_sets(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from centerpose_pucks import infer
+        K=np.array([[733.,0,320],[0,733.,320],[0,0,1.]])
+        r=np.array([.2,-.3,.4]);t=np.array([.01,-.02,.4])
+        uv=cv2.projectPoints(CORNERS,r,t,K,None)[0].reshape(8,2)
+        R=np.array([[0,-1,0],[1,0,0],[0,0,1]])
+        perm=np.linalg.norm((CORNERS@R.T)[:,None]-CORNERS[None],axis=-1).argmin(1)
+        def result(points):return dict(valid=True,confidence=.9,corners_px=points.tolist(),center_px=[338.325,283.35])
+        with patch('centerpose_pucks.infer_single',side_effect=[result(uv),result(uv[perm]),result(uv[perm])]):
+            out=infer(SimpleNamespace(inference_tta=True),None,[10,20,60,100],K)
+        self.assertEqual(out['inference_crops'],3)
+        np.testing.assert_allclose(out['center_camera_m'],t,atol=1e-6)
+        np.testing.assert_allclose(out['corners_px'],uv,atol=1e-6)
+
+    def test_invalid_new_pose_uses_preserved_model_without_ground_truth(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from centerpose_pucks import infer
+        previous=object();model=SimpleNamespace(inference_tta=True,pose_fallback=previous)
+        with patch('centerpose_pucks.infer_single',side_effect=[{'valid':False},{'valid':True,'center_camera_m':[0,0,.4]}]) as mocked:
+            result=infer(model,None,[0,0,10,10],np.eye(3))
+        self.assertTrue(result['valid']);self.assertTrue(result['used_fallback'])
+        self.assertIs(mocked.call_args_list[1].args[0],previous)
+
     def test_dimensions_are_exact(self):
         np.testing.assert_allclose(CORNERS.max(0)-CORNERS.min(0),[.03,.03,.06])
     def test_calibrated_cuboid_pnp_recovers_metric_center(self):

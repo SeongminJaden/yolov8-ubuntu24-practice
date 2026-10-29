@@ -1,0 +1,29 @@
+[
+  {
+    "scale": 1,
+    "total": 724,
+    "matches": 670,
+    "unexpected_ids": 1,
+    "median_mm": 8.123342125238537,
+    "p95_mm": 16.115641103582675,
+    "seconds": 1.5371094370002538
+  },
+  {
+    "scale": 2,
+    "total": 724,
+    "matches": 672,
+    "unexpected_ids": 0,
+    "median_mm": 8.322849072375382,
+    "p95_mm": 17.200061925013696,
+    "seconds": 3.0265119570012757
+  },
+  {
+    "scale": 3,
+    "total": 724,
+    "matches": 674,
+    "unexpected_ids": 0,
+    "median_mm": 8.4204958694762,
+    "p95_mm": 17.654985356181836,
+    "seconds": 5.363024696000139
+  }
+]

@@ -83,11 +83,16 @@ def loss_for(out,heat,ij,hps,reg):
 
 def load_model(path,device='cuda'):
     ck=torch.load(path,map_location=device,weights_only=False)
-    model=make_model().to(device);model.load_state_dict(ck['model']);model.eval()
+    model=make_model().to(device);model.load_state_dict(ck['model']);model.eval();model.inference_tta=bool(ck.get('inference_tta',False))
+    if 'fallback_model' in ck:
+        fallback=make_model().to(device)
+        fallback.load_state_dict(ck['fallback_model']);fallback.eval()
+        # Inference-only model must not become part of trainable state_dict.
+        object.__setattr__(model,'pose_fallback',fallback)
     return model
 
 @torch.inference_mode()
-def infer(model,image,box,K,device='cuda'):
+def infer_single(model,image,box,K,device='cuda'):
     x,m=crop_image(image,box)
     out=model(x[None].to(device))[0]
     heat=out['hm'][0,0].sigmoid();flat=int(heat.argmax());y,x=divmod(flat,GRID)
@@ -106,14 +111,59 @@ def infer(model,image,box,K,device='cuda'):
         result.update(valid=valid,center_camera_m=tvec.reshape(3).tolist(),rotation_matrix=cv2.Rodrigues(rvec)[0].tolist(),reprojection_error_px=error)
     return result
 
+@torch.inference_mode()
+def infer(model,image,box,K,device='cuda'):
+    base=infer_single(model,image,box,K,device)
+    if not base['valid']:
+        fallback=getattr(model,'pose_fallback',None)
+        if fallback is not None:
+            result=infer_single(fallback,image,box,K,device)
+            result['used_fallback']=True
+            return result
+        return base
+    if not getattr(model,'inference_tta',False):return base
+    results=[base]
+    x1,y1,x2,y2=box;cx,cy=(x1+x2)/2,(y1+y2)/2
+    for scale in (.9,1.1):
+        w,h=(x2-x1)*scale/2,(y2-y1)*scale/2
+        est=infer_single(model,image,[cx-w,cy-h,cx+w,cy+h],K,device)
+        if est['valid']:results.append(est)
+    if len(results)<2:return base
+    reference=np.array(base['corners_px']);aligned=[reference]
+    for est in results[1:]:
+        pts=np.array(est['corners_px']);variants=[]
+        for quarter in range(4):
+            angle=quarter*np.pi/2
+            R=np.array([[np.cos(angle),-np.sin(angle),0],[np.sin(angle),np.cos(angle),0],[0,0,1]])
+            perm=np.linalg.norm((CORNERS@R.T)[:,None]-CORNERS[None],axis=-1).argmin(1)
+            variants.append(pts[perm])
+        aligned.append(min(variants,key=lambda v:np.linalg.norm(v-reference)))
+    pixels=np.mean(aligned,axis=0)
+    ok,r,t=cv2.solvePnP(CORNERS,pixels,K,np.zeros(5),flags=cv2.SOLVEPNP_EPNP)
+    if not ok:return base
+    r,t=cv2.solvePnPRefineLM(CORNERS,pixels,K,np.zeros(5),r,t)
+    projected,_=cv2.projectPoints(CORNERS,r,t,K,np.zeros(5))
+    error=float(np.linalg.norm(projected.reshape(-1,2)-pixels,axis=1).mean())
+    if not (np.isfinite(t).all() and t[2,0]>0 and error<10):return base
+    result=dict(base)
+    result.update(source='centerpose_dla34_custom_crop_tta3',
+        center_px=np.mean([v['center_px'] for v in results],axis=0).tolist(),
+        corners_px=pixels.tolist(),center_camera_m=t.reshape(3).tolist(),
+        rotation_matrix=cv2.Rodrigues(r)[0].tolist(),reprojection_error_px=error,
+        inference_crops=len(results))
+    return result
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--manifest',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--resume',type=Path);p.add_argument('--epochs',type=int,default=40);p.add_argument('--batch',type=int,default=16)
     p.add_argument('--lr',type=float,default=.0005)
+    p.add_argument('--cosine',action='store_true',help='Decay learning rate to 10 percent over the requested epochs')
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(4);torch.manual_seed(317);np.random.seed(317);random.seed(317)
     model=load_model(a.resume) if a.resume else make_model().cuda();opt=torch.optim.Adam(model.parameters(),lr=a.lr)
+    scheduler=torch.optim.lr_scheduler.CosineAnnealingLR(opt,T_max=max(1,a.epochs),eta_min=a.lr*.1) if a.cosine else None
     train=DataLoader(Samples(a.manifest,'train'),batch_size=a.batch,shuffle=True,num_workers=0)
     val=DataLoader(Samples(a.manifest,'val'),batch_size=a.batch,num_workers=0)
     best=float('inf');history=[]
@@ -136,9 +186,10 @@ def main():
         with torch.no_grad():
             for batch in val:
                 x,heat,ij,hps,reg=[v.cuda() for v in batch];vtotal+=float(loss_for(model(x)[0],heat,ij,hps,reg))
-        row=dict(epoch=epoch+1,train_loss=total/len(train),val_loss=vtotal/len(val));history.append(row);print(row,flush=True)
+        row=dict(epoch=epoch+1,train_loss=total/len(train),val_loss=vtotal/len(val),lr=opt.param_groups[0]['lr']);history.append(row);print(row,flush=True)
         if row['val_loss']<best:
             best=row['val_loss'];torch.save(dict(model=model.state_dict(),epoch=epoch+1,scope='Custom crop harness; hm/hps/reg supervised, other heads unused',dimensions_m=[.03,.03,.06]),a.output/'best.pt')
         (a.output/'history.json').write_text(json.dumps(history,indent=2))
+        if scheduler:scheduler.step()
 
 if __name__=='__main__':main()

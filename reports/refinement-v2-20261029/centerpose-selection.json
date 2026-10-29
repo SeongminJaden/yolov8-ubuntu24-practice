@@ -1,0 +1,41 @@
+{
+  "baseline": "models/centerpose-sixface-reinforced-20261029/best.pt",
+  "selected": "models/centerpose-sixface-v2-20261029/best-tta-fallback.pt",
+  "selected_variant": "candidate-tta-fallback-val",
+  "baseline_val_center_mm": {
+    "count": 718,
+    "median": 2.1379575222970066,
+    "p95": 11.269052688244967
+  },
+  "baseline_valid": 718,
+  "candidates": [
+    {
+      "candidate": "candidate-val",
+      "val_center_mm": {
+        "count": 717,
+        "median": 2.029006468375262,
+        "p95": 10.372147555745796
+      },
+      "valid_poses": 717
+    },
+    {
+      "candidate": "candidate-tta-val",
+      "val_center_mm": {
+        "count": 717,
+        "median": 1.6348659893461475,
+        "p95": 8.804868706658047
+      },
+      "valid_poses": 717
+    },
+    {
+      "candidate": "candidate-tta-fallback-val",
+      "val_center_mm": {
+        "count": 718,
+        "median": 1.6362013839658496,
+        "p95": 9.210970921427462
+      },
+      "valid_poses": 718
+    }
+  ],
+  "selection_rule": "lowest val center P95 with no worse median or valid-pose coverage than baseline; otherwise retain baseline"
+}

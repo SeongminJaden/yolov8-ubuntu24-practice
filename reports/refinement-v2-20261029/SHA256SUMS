@@ -1,0 +1,3 @@
+cfae99819e03a3b2f57f39757b64305296aea0fb8ee1f752f811349ec576f692  models/centerpose-sixface-v2-20261029/best-tta-fallback.pt
+3d4de5fde0041d44c1cecc902ea26c8ab8d67ebbde6ea2c413fa34dfc4b2473d  /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/tagged-sixface-reinforced-20261029/weights/best.pt
+ee36b1974ad314d91ad0e6ce89a4dd03e0f43e092216785c9be3c1dfd9b6a23b  data/tagged-sixface-v2-mixed-20261029/manifest.json

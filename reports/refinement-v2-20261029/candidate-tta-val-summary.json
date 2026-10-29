@@ -1,0 +1,48 @@
+{
+  "ground_truth_objects": 724,
+  "yolo_unique_class_matches": 719,
+  "centerpose_valid_poses": 717,
+  "centerpose_center_error_mm": {
+    "count": 717,
+    "median": 1.6348659893461475,
+    "p95": 8.804868706658047
+  },
+  "centerpose_center_error_px": {
+    "count": 719,
+    "median": 0.2678700298188465,
+    "p95": 1.5424530647152241
+  },
+  "centerpose_rotation_error_deg": {
+    "count": 717,
+    "median": 90.46857069337284,
+    "p95": 179.8129912650818
+  },
+  "centerpose_rotation_modulo90_error_deg": {
+    "count": 717,
+    "median": 1.0726912293776667,
+    "p95": 4.987200474523573
+  },
+  "cylinder_axis_error_deg": {
+    "count": 359,
+    "median": 0.34549624998239525,
+    "p95": 1.181389488450151
+  },
+  "tag_ground_truth": 724,
+  "tag_id_matches": 670,
+  "tag_unexpected_ids": 1,
+  "tag_position_error_mm": {
+    "count": 670,
+    "median": 8.123342125238537,
+    "p95": 16.115641103582675
+  },
+  "tag_derived_object_center_error_mm": {
+    "count": 0,
+    "median": null,
+    "p95": null
+  },
+  "associations": 653,
+  "correct_associations": 653,
+  "test_images": 200,
+  "scope": "Procedural test images; pose error conditional on valid model outputs; independence depends on dataset provenance; no real-camera claim",
+  "fallback_count": 0
+}

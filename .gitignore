@@ -23,3 +23,9 @@ reports/reinforcement-20261029/**/*.log
 reports/reinforcement-20261029/*.log
 reports/reinforcement-20261029/**/evaluation.json
 reports/reinforcement-20261029/generator-before.py
+
+# Full local refinement evidence; compact summaries are versioned
+reports/refinement-v2-20261029/**/*.log
+reports/refinement-v2-20261029/*.log
+reports/refinement-v2-20261029/**/evaluation.json
+reports/refinement-v2-20261029/**/frames.jsonl
