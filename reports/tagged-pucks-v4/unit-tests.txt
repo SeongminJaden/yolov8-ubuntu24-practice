@@ -1,0 +1,26 @@
+test_invalid (test_labels.Labels.test_invalid) ... ok
+test_valid (test_labels.Labels.test_valid) ... ok
+test_cli_records_leakage_without_loading_model (test_sim_evaluation.SimEvaluation.test_cli_records_leakage_without_loading_model) ... ok
+test_disjoint_data_and_sessions (test_sim_evaluation.SimEvaluation.test_disjoint_data_and_sessions) ... ok
+test_duplicate_content_and_session_leakage (test_sim_evaluation.SimEvaluation.test_duplicate_content_and_session_leakage) ... ok
+test_latency_statistics (test_sim_evaluation.SimEvaluation.test_latency_statistics) ... ok
+test_manifest_missing_entry_or_wrong_split (test_sim_evaluation.SimEvaluation.test_manifest_missing_entry_or_wrong_split) ... ok
+test_metrics_preserve_class_index_mapping (test_sim_evaluation.SimEvaluation.test_metrics_preserve_class_index_mapping) ... ok
+test_greedy_match_is_one_to_one_and_class_aware (test_sim_evaluation.SimVideoEvaluation.test_greedy_match_is_one_to_one_and_class_aware) ... ok
+test_id_switch_and_gap_coverage (test_sim_evaluation.SimVideoEvaluation.test_id_switch_and_gap_coverage) ... ok
+test_no_id_is_not_identity_coverage_and_sessions_are_separate (test_sim_evaluation.SimVideoEvaluation.test_no_id_is_not_identity_coverage_and_sessions_are_separate) ... ok
+test_calibrated_cuboid_pnp_recovers_metric_center (test_tagged_pose.TaggedPoseTests.test_calibrated_cuboid_pnp_recovers_metric_center) ... ok
+test_crop_projection_round_trip (test_tagged_pose.TaggedPoseTests.test_crop_projection_round_trip) ... ok
+test_dimensions_are_exact (test_tagged_pose.TaggedPoseTests.test_dimensions_are_exact) ... ok
+test_printed_tag_convention_and_metric_scale (test_tagged_pose.TaggedPoseTests.test_printed_tag_convention_and_metric_scale) ... ok
+test_tag_to_object_offset_rotates_with_tag (test_tagged_pose.TaggedPoseTests.test_tag_to_object_offset_rotates_with_tag) ... ok
+test_isolated_outputs_and_overwrite_protection (test_verification.SyntheticOutputs.test_isolated_outputs_and_overwrite_protection) ... ok
+test_empty_background_still_rejects_invalid_class_count (test_verification.Verification.test_empty_background_still_rejects_invalid_class_count) ... ok
+test_missing_current_artifact_cannot_use_old_run (test_verification.Verification.test_missing_current_artifact_cannot_use_old_run) ... ok
+test_single_label_file_is_validated (test_verification.Verification.test_single_label_file_is_validated) ... ok
+test_tracking_requires_ids_in_processed_frames (test_verification.Verification.test_tracking_requires_ids_in_processed_frames) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.415s
+
+OK

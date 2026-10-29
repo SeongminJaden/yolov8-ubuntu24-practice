@@ -33,3 +33,7 @@ Ubuntu 24.04 x86_64, RTX 5060 Laptop GPU 8GB, driver 595.99.02에서 실행했�
 ## Isaac Sim 추가 검증
 
 실제 RTX 데이터 생성(160/40/80장), 50 epoch 학습, 조건별 시험, 120프레임 영상 추적, Sim 모델 TensorRT 수치 비교와 native Sim→ROS 연결을 완료했습니다. CPU 테스트는 16개 통과했습니다. [전체 평가](SIM_EVALUATION.md)를 참고하세요. RealSense 실제 연결은 향후 진행하며 [연결 안내](../docs/REALSENSE.md)를 제공합니다.
+
+## 실규격 태그 퍽 통합
+
+30×30×60mm / Ø30×60mm, 빨강·초록, AprilTag를 반영했습니다. YOLO·맞춤 CenterPose DLA34·AprilTag 통합과 실제 Sim→ROS 수신을 검증했습니다. 최종 데이터/모델 수치는 [최종 평가](tagged-pucks-v4/RESULTS.md)를 참고하세요. CenterPose 표준 Isaac ROS export·실물 검증과 구분합니다.

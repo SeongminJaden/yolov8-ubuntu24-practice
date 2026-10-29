@@ -1,0 +1,5 @@
+{
+  "repository": "https://github.com/NVIDIA/tao_pytorch_backend",
+  "commit": "99403b7dd941d1276e4e23ed3efd6794e207a75d",
+  "adaptation": "DLA34 class and model_utils retained; custom crop training/decoding harness, not TAO CLI or Isaac ROS model compatibility claim"
+}

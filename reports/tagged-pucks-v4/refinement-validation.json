@@ -1,0 +1,30 @@
+{
+  "1_1": {
+    "validation_gt": 216,
+    "matches": 98,
+    "unexpected_ids": 0,
+    "median_mm": 11.86432719488582,
+    "p95_mm": 29.112512560196723
+  },
+  "3_1": {
+    "validation_gt": 216,
+    "matches": 87,
+    "unexpected_ids": 0,
+    "median_mm": 4.401827282833753,
+    "p95_mm": 11.842358371453434
+  },
+  "1_2": {
+    "validation_gt": 216,
+    "matches": 107,
+    "unexpected_ids": 0,
+    "median_mm": 10.70462286899201,
+    "p95_mm": 22.975340705655704
+  },
+  "3_2": {
+    "validation_gt": 216,
+    "matches": 117,
+    "unexpected_ids": 0,
+    "median_mm": 5.0959852037091755,
+    "p95_mm": 13.350725456713784
+  }
+}

@@ -1,0 +1,2 @@
+# Additional tagged-puck dependencies; scripts/install.sh installs this file
+pupil-apriltags==1.0.4.post11

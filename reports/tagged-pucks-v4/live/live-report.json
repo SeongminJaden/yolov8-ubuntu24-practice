@@ -1,0 +1,13 @@
+{
+  "paired_frames": 655,
+  "objects": 2620,
+  "centerpose_valid": 2620,
+  "associated_tags": 2620,
+  "passed_transport": true,
+  "passed_all_outputs": true,
+  "models": {
+    "yolo": "runs/detect/tagged_pucks_v4/weights/best.pt",
+    "centerpose": "models/centerpose-pucks-v4/best.pt"
+  },
+  "scope": "Transport/output counts, not ground-truth accuracy. CenterPose and tags may be invalid/missing."
+}

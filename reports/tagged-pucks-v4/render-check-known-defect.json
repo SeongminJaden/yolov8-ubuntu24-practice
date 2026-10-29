@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "samples": 284,
+  "p95_channel_spread": 170.84092857142855,
+  "scope": "Neutral white margin check on unoccluded normal scenes"
+}

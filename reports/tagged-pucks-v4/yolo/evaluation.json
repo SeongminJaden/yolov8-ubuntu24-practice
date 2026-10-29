@@ -1,0 +1,1229 @@
+{
+  "status": "completed",
+  "weights": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/tagged_pucks_v4/weights/best.pt",
+  "data": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/dataset.yaml",
+  "device": "0",
+  "integrity": {
+    "sha256_cross_split_duplicates": [],
+    "image_counts": {
+      "train": 240,
+      "val": 60,
+      "test": 100
+    },
+    "session_check": "checked",
+    "session_cross_split_duplicates": [],
+    "manifest_errors": [],
+    "passed": true
+  },
+  "scope": "Rendered simulation test split; not evidence of real-camera accuracy.",
+  "metrics": {
+    "precision": 0.9990437472955995,
+    "recall": 0.9944444444444445,
+    "mAP50": 0.9943590100111235,
+    "mAP50_95": 0.9919264710294767,
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "red_cylinder",
+        "precision": 0.9982648778386003,
+        "recall": 0.9888888888888889,
+        "mAP50": 0.9927586206896551,
+        "mAP50_95": 0.9881240611605143
+      },
+      {
+        "class_id": 1,
+        "name": "red_prism",
+        "precision": 0.9993025037644679,
+        "recall": 0.9888888888888889,
+        "mAP50": 0.9946774193548388,
+        "mAP50_95": 0.9910658229573925
+      },
+      {
+        "class_id": 2,
+        "name": "green_cylinder",
+        "precision": 0.9994433017438771,
+        "recall": 1.0,
+        "mAP50": 0.995,
+        "mAP50_95": 0.993516
+      },
+      {
+        "class_id": 3,
+        "name": "green_prism",
+        "precision": 0.9991643058354522,
+        "recall": 1.0,
+        "mAP50": 0.995,
+        "mAP50_95": 0.9949999999999999
+      }
+    ],
+    "note": "Per-class values are reported only for evaluated ground-truth classes."
+  },
+  "latency": {
+    "count": 100,
+    "p50_ms": 6.053392000012536,
+    "p95_ms": 6.691041799672348,
+    "mean_ms": 6.031688879998001,
+    "fps": 165.7910445805904,
+    "warmup_frames_excluded": 3,
+    "scope": "Sequential file-input predict wall time including decode, preprocess, inference and postprocess; excluding plotting and saving.",
+    "prediction_confidence": 0.25,
+    "samples_seconds": [
+      0.005281170999751339,
+      0.005971564999981638,
+      0.005489092000061646,
+      0.006360462999964511,
+      0.0061781029999110615,
+      0.006622915000207286,
+      0.006242193000161933,
+      0.005986004999613215,
+      0.0068426489997364115,
+      0.006637090999902284,
+      0.006289309999829129,
+      0.005788224999832892,
+      0.006472217999998975,
+      0.005876684000213572,
+      0.007647335000001476,
+      0.006662720999884186,
+      0.006460073000198463,
+      0.0057502029999341175,
+      0.0065644770002109,
+      0.006112328000199341,
+      0.00571010599969668,
+      0.006106352999722731,
+      0.005233190000126342,
+      0.006102916000145342,
+      0.006630154000049515,
+      0.0060802960001637985,
+      0.0060496539999803645,
+      0.005210785000144824,
+      0.006140633000086382,
+      0.006028994000189414,
+      0.006665983999937453,
+      0.005849497999861342,
+      0.005638613999963127,
+      0.004939365999689471,
+      0.00592693299995517,
+      0.005929414000092947,
+      0.0066919310002049315,
+      0.006089724999583268,
+      0.005732414999783941,
+      0.005937764000009338,
+      0.005872020999959204,
+      0.005837781000082032,
+      0.006412385000203358,
+      0.006453023000176472,
+      0.005587550000200281,
+      0.005874364999726822,
+      0.005875391000245145,
+      0.006313449000117544,
+      0.005326669000169204,
+      0.005998356999953103,
+      0.005522815999938757,
+      0.006572644000243599,
+      0.0060083270000177436,
+      0.006090786000186199,
+      0.005650641000102041,
+      0.005415121000169165,
+      0.006088940000154253,
+      0.005474675000186835,
+      0.006134818000191444,
+      0.006720987999869976,
+      0.006690994999644317,
+      0.006067359000098804,
+      0.0059428200002002995,
+      0.006460242999764887,
+      0.006113547000040853,
+      0.005550960999698873,
+      0.005550822999794036,
+      0.005353560000003199,
+      0.006386956999904214,
+      0.006814445999680174,
+      0.0059998709998581035,
+      0.006042271999831428,
+      0.005224091999934899,
+      0.006476087000010011,
+      0.006371452000166755,
+      0.006642282000029809,
+      0.006057130000044708,
+      0.0046965329997874505,
+      0.005517722000149661,
+      0.006336915000247245,
+      0.006079877000047418,
+      0.005936478999956307,
+      0.005918791000112833,
+      0.005592819999947096,
+      0.00628286199980721,
+      0.006252169999697799,
+      0.006239501000436576,
+      0.005681270999957633,
+      0.005792589000066073,
+      0.005910184000185836,
+      0.0057631740000942955,
+      0.006452728999647661,
+      0.005758610999691882,
+      0.00623010700019222,
+      0.006186147999869718,
+      0.006213352000031591,
+      0.006090624000080425,
+      0.005467701000270608,
+      0.006078536000131862,
+      0.005785001999811357
+    ]
+  },
+  "predictions": [
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0000.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0001.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0002.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0003.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0004.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0005.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0006.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0007.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0008.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0009.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0010.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0011.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0012.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0013.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0014.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0015.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0016.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0017.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0018.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0019.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0020.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0021.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0022.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0023.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0024.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0025.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0026.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0027.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0028.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0029.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0030.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0031.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0032.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0033.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0034.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0035.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0036.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0037.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0038.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0039.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0040.png",
+      "detections": 3,
+      "ground_truth_objects": 3,
+      "class_ids": [
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0041.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0042.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0043.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0044.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0045.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0046.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0047.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0048.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0049.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0050.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0051.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0052.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0053.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0054.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0055.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0056.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0057.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0058.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0059.png",
+      "detections": 3,
+      "ground_truth_objects": 3,
+      "class_ids": [
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0060.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0061.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0062.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0063.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0064.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0065.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0066.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0067.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0068.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0069.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0070.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0071.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0072.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0073.png",
+      "detections": 3,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0074.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0075.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0076.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0077.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0078.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0079.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0080.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0081.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0082.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0083.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0084.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0085.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0086.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0087.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0088.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0089.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0090.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0091.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0092.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0093.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0094.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0095.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0096.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        2,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0097.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0098.png",
+      "detections": 4,
+      "ground_truth_objects": 4,
+      "class_ids": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "image": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-pucks-v4/images/test/0099.png",
+      "detections": 0,
+      "ground_truth_objects": 0,
+      "class_ids": []
+    }
+  ],
+  "counts": {
+    "test_images": 100,
+    "detections": 357,
+    "ground_truth_objects": 358,
+    "negative_images": 10,
+    "negative_images_with_false_positives": 0,
+    "images_with_detections": 90
+  }
+}

@@ -41,6 +41,7 @@ polars==2.1.0
 polars-runtime-32==2.1.0
 protobuf==7.36.2
 psutil==7.2.2
+pupil_apriltags==1.0.4.post11
 pyparsing==3.3.3
 python-dateutil==3.0.0
 PyYAML==6.0.3

@@ -2,6 +2,15 @@
 
 [원문 설치 가이드](https://velog.io/@roboticsmaster/Ubuntu-24.04-YOLOv8-실습-설치-가이드)의 학습 흐름을 실행 가능한 스크립트로 새로 구현했습니다. 원문에서 언급한 배포 ZIP은 제공되지 않았으므로 그 ZIP의 코드나 12개 테스트를 복제한 저장소가 아닙니다.
 
+## 30×30×60mm / Ø30×60mm 태그 퍽 통합 인식
+
+새 실규격으로 빨강·초록 직육면체/원기둥을 생성하고 **YOLO 형상·색상 + CenterPose 물체 중심/자세 + AprilTag ID/위치**를 통합했습니다. 물체 중심과 표면 태그 위치는 별도로 출력합니다.
+
+- [실행 방법·출력 규격·인쇄용 태그](docs/TAGGED_PUCKS.md)
+- [최종 실규격 평가 결과](reports/tagged-pucks-v4/RESULTS.md)
+
+태그 기본값은 tag36h11, 검은 경계 16mm, 흰 여백 포함 20mm, 윗면 중앙입니다. CenterPose는 NVIDIA DLA34 아키텍처의 맞춤 crop 학습 경로이며, 기본 Isaac ROS CenterPose 모델과 호환되는 export가 아닙니다. 실제 RealSense 성능 및 정밀 집기 정확도는 아직 검증하지 않았습니다.
+
 ## Isaac Sim 평가와 카메라 연결
 
 실제 Isaac Sim 렌더 데이터로 50 epoch 학습과 전체 평가를 완료했습니다. 독립 시험 mAP50 **0.995**, mAP50–95 **0.973**, native Sim → Isaac ROS 카메라·검출 수신까지 확인했습니다.

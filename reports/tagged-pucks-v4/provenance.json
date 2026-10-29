@@ -1,0 +1,15 @@
+{
+  "sha256": {
+    "runs/detect/tagged_pucks_v4/weights/best.pt": "cf435bea732f8fa4740c88042dd8a26be70acf6bf5402e4850df97bac6b24ca8",
+    "models/centerpose-pucks-v4/best.pt": "c43b68602cac3ed6863e2e7ab0be6ee879f3bb88391737d98e4ab43d517d71b8",
+    "data/tagged-pucks-v4/manifest.json": "b8c0197345323cba56e10437c661b943ed105d6ec5cecc8c1ed96752d24b08b7",
+    "sim/generate_tagged_pucks.py": "7f982c37309617b1c3aac89a08a4c663a46d4ca800e8c6253e9fafdb33b3c1ae",
+    "scripts/centerpose_pucks.py": "83a47def08fb4e8fffbfacdfd8edf2570285d5a4b91aa768c00fe7808cfa6f56",
+    "scripts/tagged_perception.py": "ceac0aead2889eaea2237fcd52db9c6ae0545865685fbeb4aa91dfa4248c853d"
+  },
+  "yolo_training": "50 epochs on v3 + 30 epochs on corrected v4",
+  "centerpose_training": "40 epochs original crop loss + 60 epochs symmetry-aware loss on v3 + 30 epochs corrected v4",
+  "selection": "minimum val loss per CenterPose stage; Ultralytics best for YOLO",
+  "apriltag_backend": "pupil-apriltags 1.0.4.post11, quad_decimate=1, refine_edges=1; OpenCV IPPE pose",
+  "intermediate_failure": "USD MakeVisible on child changed sibling visibility, hiding white backing; fixed explicit visibility attributes. v3 is diagnostic, v4 is final."
+}

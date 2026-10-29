@@ -1,0 +1,10 @@
+[INFO] [launch]: All log files can be found below /home/admin/.ros/log/2026-10-29-13-46-45-076765-ros-8577
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container_mt-1]: process started with pid [8613]
+[component_container_mt-1] [WARN] [1793249205.123196289] [component_container_mt]: This executable is deprecated and will be removed in M-turtle.
+[component_container_mt-1] Use 'component_container --executor-type multi-threaded' instead.
+[component_container_mt-1] [INFO] [1793249205.372450874] [puck_apriltag_container]: Load Library: /opt/ros/lyrical/lib/libapriltag_node.so
+[component_container_mt-1] [INFO] [1793249205.381704758] [puck_apriltag_container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::apriltag::AprilTagNode>
+[component_container_mt-1] [INFO] [1793249205.381725657] [puck_apriltag_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::apriltag::AprilTagNode>
+[component_container_mt-1] [INFO] [1793249205.389057077] [puck_apriltag]: Using cuAprilTag implementation.
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/puck_apriltag' in container '/puck_apriltag_container'
