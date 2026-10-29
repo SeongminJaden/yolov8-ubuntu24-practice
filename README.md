@@ -141,3 +141,8 @@ python3 scripts/verify_ros.py --output "$ISAAC_ROS_WS/pucks-verification" --seco
 ![합성 퍽 ROS 검출](reports/pucks-ros/ros-detections.jpg)
 
 기존 검증 로그의 호스트 경로는 프로젝트 이동에 맞춰 정규화했습니다. 측정값과 모델 파일은 변경하지 않았습니다.
+
+### 주사위 미로 미션 환경
+
+제공된 `maze.zip`을 사용하는 [회차 랜덤화·Isaac Sim 실행·4K 자료 생성 안내](docs/MISSION_RANDOMIZATION.md).
+신호 횟수 25조합, 바코드 4종, 풀이 가능한 퍽 속성/배치/자세와 조명을 시드로 재현합니다.

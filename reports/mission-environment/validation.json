@@ -1,0 +1,155 @@
+{
+  "source_zip_sha256": "1fdbee915b192401e0580c4b89cd16d112982bafc370c11e031c999ac8c2f5e7",
+  "unit_tests": 33,
+  "count_combinations": 25,
+  "barcode_combinations": 4,
+  "all_count_barcode_cases": 100,
+  "random_invariant_episodes": 2000,
+  "barcode_pattern_roundtrips": {
+    "P2-01": [
+      "P2-01"
+    ],
+    "P2-02": [
+      "P2-02"
+    ],
+    "P2-03": [
+      "P2-03"
+    ],
+    "P2-04": [
+      "P2-04"
+    ]
+  },
+  "signal_timeline_frames_verified": 625,
+  "usd_scenes_verified": [
+    "initial",
+    "solution",
+    "augmentation"
+  ],
+  "limitations": [
+    "PDF-to-CAD origin translation is assumed, not surveyed",
+    "Central platform center and signal dimensions are configurable modeling assumptions",
+    "Static scenes; no robot physics or task completion scoring",
+    "No real-camera accuracy claim"
+  ],
+  "renders": [
+    {
+      "image": "work/mission-solved-verified/images/episode-00000-Overview.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 12,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [],
+      "mean_rgb": 102.33650028935185
+    },
+    {
+      "image": "work/mission-solved-verified/images/episode-00000-L1.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 3,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [
+        3,
+        4,
+        10
+      ],
+      "mean_rgb": 67.73432243441358
+    },
+    {
+      "image": "work/mission-solved-verified/images/episode-00000-L2.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 4,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [
+        1,
+        2,
+        7,
+        11
+      ],
+      "mean_rgb": 109.40195348668982
+    },
+    {
+      "image": "work/mission-solved-verified/images/episode-00000-L3.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 5,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [
+        0,
+        5,
+        6,
+        8,
+        9
+      ],
+      "mean_rgb": 63.49195179880401
+    },
+    {
+      "image": "work/mission-batch-verified/images/episode-00000-Pucks1.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 2,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [
+        2,
+        10
+      ],
+      "mean_rgb": 79.54837211451903
+    },
+    {
+      "image": "work/mission-batch-verified/images/episode-00000-Signal.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 0,
+      "decoded_barcodes": [
+        "P2-01"
+      ],
+      "detected_tag_ids": [],
+      "mean_rgb": 97.6009020945859
+    },
+    {
+      "image": "work/mission-batch-verified/images/episode-00001-Pucks1.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 2,
+      "decoded_barcodes": [],
+      "detected_tag_ids": [
+        1,
+        8
+      ],
+      "mean_rgb": 86.15548936631944
+    },
+    {
+      "image": "work/mission-batch-verified/images/episode-00001-Signal.png",
+      "resolution": [
+        3840,
+        2160
+      ],
+      "yolo_boxes": 0,
+      "decoded_barcodes": [
+        "P2-01"
+      ],
+      "detected_tag_ids": [],
+      "mean_rgb": 97.57079419045782
+    }
+  ],
+  "gpu_memory_fix": "Reuse Hydra render product and switch through hydra_texture.set_camera_path; disable automatic exposure. Final runs have no RTX error lines.",
+  "generated_usd_batch": {
+    "path": "work/mission-training-100",
+    "episodes": 100,
+    "seed_base": 5000000
+  }
+}
