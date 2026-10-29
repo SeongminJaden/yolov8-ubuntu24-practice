@@ -1,0 +1,10 @@
+# Generate an absolute local config using make_synthetic.py, or set path for real photos.
+path: ../data/yolo
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: red_cylinder
+  1: red_prism
+  2: green_cylinder
+  3: green_prism

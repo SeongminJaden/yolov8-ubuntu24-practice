@@ -1,0 +1,7 @@
+test_invalid (test_labels.Labels.test_invalid) ... ok
+test_valid (test_labels.Labels.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

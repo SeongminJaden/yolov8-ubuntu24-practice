@@ -1,0 +1,82 @@
+{
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU"
+  },
+  "bus_prediction": {
+    "detections": 6,
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check2"
+  },
+  "coco8_train": {
+    "epochs": 1,
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train2"
+  },
+  "synthetic_test": {
+    "weights": "runs/detect/synthetic_pucks2/weights/best.pt",
+    "metrics": {
+      "metrics/precision(B)": 0.967087181976446,
+      "metrics/recall(B)": 0.992924623658612,
+      "metrics/mAP50(B)": 0.995,
+      "metrics/mAP50-95(B)": 0.9625656212887694,
+      "fitness": 0.9625656212887694
+    },
+    "note": "Synthetic data only; not real puck accuracy"
+  },
+  "synthetic_track": {
+    "frames": 30,
+    "frames_with_ids": 30
+  },
+  "yolov8s_onnx": {
+    "meta": {
+      "inputs": [
+        {
+          "name": "images",
+          "shape": [
+            1,
+            3,
+            640,
+            640
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output0",
+          "shape": [
+            1,
+            84,
+            8400
+          ]
+        }
+      ]
+    },
+    "max_absolute_error": 0.001800537109375
+  },
+  "pucks_onnx": {
+    "meta": {
+      "inputs": [
+        {
+          "name": "images",
+          "shape": [
+            1,
+            3,
+            640,
+            640
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output0",
+          "shape": [
+            1,
+            8,
+            8400
+          ]
+        }
+      ]
+    },
+    "max_absolute_error": 0.00146484375
+  }
+}
