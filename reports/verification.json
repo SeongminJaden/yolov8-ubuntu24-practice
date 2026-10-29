@@ -1,25 +1,25 @@
 {
   "environment": {
-    "torch": "2.11.0+cu130",
-    "cuda": "13.0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
     "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU"
   },
   "bus_prediction": {
     "detections": 6,
-    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check2"
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check3"
   },
   "coco8_train": {
     "epochs": 1,
-    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train2"
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3"
   },
   "synthetic_test": {
-    "weights": "runs/detect/synthetic_pucks2/weights/best.pt",
+    "weights": "runs/detect/synthetic_pucks3/weights/best.pt",
     "metrics": {
-      "metrics/precision(B)": 0.967087181976446,
-      "metrics/recall(B)": 0.992924623658612,
+      "metrics/precision(B)": 0.9650190397350155,
+      "metrics/recall(B)": 0.99956084481865,
       "metrics/mAP50(B)": 0.995,
-      "metrics/mAP50-95(B)": 0.9625656212887694,
-      "fitness": 0.9625656212887694
+      "metrics/mAP50-95(B)": 0.9607526964773146,
+      "fitness": 0.9607526964773146
     },
     "note": "Synthetic data only; not real puck accuracy"
   },
@@ -77,6 +77,6 @@
         }
       ]
     },
-    "max_absolute_error": 0.00146484375
+    "max_absolute_error": 0.002044677734375
   }
 }

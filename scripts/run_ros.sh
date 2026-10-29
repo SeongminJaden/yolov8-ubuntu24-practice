@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 : "${ISAAC_ROS_WS:?Activate Isaac ROS container first}"
+source /opt/ros/lyrical/setup.bash
 a="$ISAAC_ROS_WS/isaac_ros_assets"
 case "${1:-}" in
  detect) ros2 launch isaac_ros_examples isaac_ros_examples.launch.py launch_fragments:=yolov8 interface_specs_file:="$a/isaac_ros_yolov8/quickstart_interface_specs.json" engine_file_path:="$a/models/yolov8/yolov8s.plan" ;;

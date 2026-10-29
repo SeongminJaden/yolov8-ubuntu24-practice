@@ -12,7 +12,7 @@ source .venv-yolo/bin/activate
 python scripts/check_gpu.py
 ```
 
-가이드 조합은 PyTorch 2.9.1 + torchvision 0.24.1 (cu128)입니다. **이 장비의 실제 검증은 디스크 부족으로 기존 Isaac Sim 환경의 torch 2.11.0+cu130 / torchvision 0.26.0을 별도 venv에서 필요한 의존성만 심볼릭 링크로 참조했습니다.** 따라서 고정 버전 설치를 검증했다고 볼 수 없습니다. 기존 환경은 수정하지 않았습니다. `.venv-yolo`는 로컬 의존 경로를 포함하므로 Git에 넣지 않습니다. 새 장비는 설치 스크립트로 독립 환경을 만드세요.
+가이드의 고정 조합인 **PyTorch 2.9.1 + torchvision 0.24.1 (cu128), Ultralytics 8.3.221, NumPy 1.26.4, OpenCV 4.11.0.86, ONNX 1.17.0**을 독립 `.venv-yolo`에 설치하고 전체 학습 파이프라인을 실제 GPU에서 검증했습니다. `environment-yolo-lock.txt`에 실제 설치 버전을 기록했습니다. 이전 cu130 재사용 환경은 `.venv-reused`에 별도로 보관하며 Git에는 포함하지 않습니다. 현재 검증 로그는 `reports/pipeline-guide.log`입니다.
 
 ## 전체 학습 예제
 
@@ -46,7 +46,9 @@ python scripts/inspect_onnx.py models/pucks.onnx
 
 ## Isaac ROS / TensorRT
 
-이 장비에서는 디스크 여유 부족(시작 시 약 2GB), Docker socket 접근 불가, 비대화형 sudo 불가로 **설치 및 실행 미검증**입니다. 기존 Docker/ROS 설치를 덮어쓰지 않았습니다. 원문 7~9절에 따라 충분한 공간에서 Isaac ROS 5.0 컨테이너와 공식 자산을 준비한 후 아래를 실행합니다.
+파티션 확장 후 Docker 접근, NVIDIA 런타임, Isaac ROS 5.0 컨테이너 실행 및 컨테이너 GPU 인식까지 확인했습니다. **현재 ROS/TensorRT 의존 패키지 설치 중이며, 엔진 생성·검출 토픽 검증은 아직 완료되지 않았습니다.** 최종 상태는 `reports/STATUS.md`를 확인하세요.
+
+실습용 호스트 workspace를 정한 뒤 `python scripts/fetch_ros_assets.py "$ISAAC_ROS_WS"`로 공식 5.0.0 자산을 내려받습니다. 활성화된 컨테이너에서는 `bash scripts/install_ros_packages.sh`로 패키지를 설치합니다. ONNX는 공유 workspace의 `isaac_ros_assets/models/yolov8/yolov8s.onnx`에 복사합니다.
 
 ```bash
 # 활성화된 Lyrical 컨테이너 안에서
