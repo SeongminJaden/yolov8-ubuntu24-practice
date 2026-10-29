@@ -10,5 +10,7 @@ sudo apt-get install -y curl jq tar \
   ros-lyrical-isaac-ros-examples \
   ros-lyrical-rqt-image-view
 sudo apt-get clean
+set +u
 source /opt/ros/lyrical/setup.bash
+set -u
 ros2 pkg prefix isaac_ros_yolov8

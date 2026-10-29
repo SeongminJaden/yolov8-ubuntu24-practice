@@ -18,12 +18,10 @@ python scripts/check_gpu.py
 
 ```bash
 python -m unittest discover -s tests -v
-python scripts/make_synthetic.py
-python scripts/validate_labels.py data/synthetic-pucks/labels --kind yolo --classes 4
 python scripts/verify_pipeline.py
 ```
 
-검증 스크립트는 공개 버스 이미지 검출, COCO8 1 epoch 학습, 합성 퍽 10 epoch 학습, 별도 test 평가, ByteTrack 영상 추적, COCO YOLOv8s 및 퍽 ONNX 변환, ONNX Runtime와 PyTorch의 출력 수치 비교를 수행합니다. 결과는 `reports/verification.json`, 상세 로그는 실행 시 리다이렉션할 수 있습니다. GPU와 인터넷 연결이 필요합니다. 결과 디렉터리는 Ultralytics가 자동 증가시킵니다. 합성 데이터 생성기는 기존 데이터가 있으면 중단합니다.
+검증 스크립트는 공개 버스 이미지 검출, COCO8 1 epoch 학습, 합성 퍽 10 epoch 학습, 별도 test 평가, ByteTrack 영상 추적, COCO YOLOv8s 및 퍽 ONNX 변환, ONNX Runtime와 PyTorch의 출력 수치 비교를 수행합니다. 결과는 `reports/verification.json`, 상세 로그는 실행 시 리다이렉션할 수 있습니다. GPU와 인터넷 연결이 필요합니다. 결과 디렉터리는 Ultralytics가 자동 증가시킵니다. 검증 실행마다 `data/verification_<run_id>/`에 독립 합성 자료·설정·영상을 만들고, 기존 실제 데이터 설정은 덮어쓰지 않습니다. 합성 생성기를 따로 실행할 때는 `--output`, `--config`, `--video`로 새 경로를 지정할 수 있습니다. 기존 출력 경로가 있으면 중단합니다.
 
 합성 퍽은 빨강/초록 원과 사각형으로 만든 **코드 흐름 확인용** 자료입니다. 원은 cylinder, 사각형은 prism을 대신하는 단순 도형이며 실제 물체 인식 성능을 증명하지 않습니다. train/val/test는 서로 다른 seed로 생성합니다. 실제 사진은 촬영 세션 단위로 분리해야 합니다.
 
@@ -46,22 +44,49 @@ python scripts/inspect_onnx.py models/pucks.onnx
 
 ## Isaac ROS / TensorRT
 
-파티션 확장 후 Docker 접근, NVIDIA 런타임, Isaac ROS 5.0 컨테이너 실행 및 컨테이너 GPU 인식까지 확인했습니다. **현재 ROS/TensorRT 의존 패키지 설치 중이며, 엔진 생성·검출 토픽 검증은 아직 완료되지 않았습니다.** 최종 상태는 `reports/STATUS.md`를 확인하세요.
+실제 설치: Isaac ROS 5.0.0 / ROS Lyrical, CUDA Toolkit 13.2.2, TensorRT 10.16.1.11. RTX 5060 Laptop GPU에서 컨테이너 GPU 인식, 두 모델의 엔진 생성, ONNX Runtime와 TensorRT 수치 비교를 검증했습니다. 기본 TF32 엔진은 엄격한 수치 비교에서 차이가 나서 재현 스크립트는 `--noTF32`로 생성합니다. 엔진은 대상 GPU에서 다시 만드세요.
 
-실습용 호스트 workspace를 정한 뒤 `python scripts/fetch_ros_assets.py "$ISAAC_ROS_WS"`로 공식 5.0.0 자산을 내려받습니다. 활성화된 컨테이너에서는 `bash scripts/install_ros_packages.sh`로 패키지를 설치합니다. ONNX는 공유 workspace의 `isaac_ros_assets/models/yolov8/yolov8s.onnx`에 복사합니다.
+호스트에서 공유 workspace를 준비합니다. `ISAAC_ROS_WS`는 본인의 실제 경로로 지정하세요. 이 장비는 저장소 상위의 `work/isaac_ros-dev`를 사용했습니다.
 
 ```bash
-# 활성화된 Lyrical 컨테이너 안에서
-bash scripts/ros_preflight.sh
-bash scripts/build_engine.sh "$ISAAC_ROS_WS/isaac_ros_assets/models/yolov8/yolov8s.onnx" "$ISAAC_ROS_WS/isaac_ros_assets/models/yolov8/yolov8s.plan"
-# 각각 별도 활성화된 컨테이너 터미널에서
-bash scripts/run_ros.sh detect
-bash scripts/run_ros.sh bag
-bash scripts/run_ros.sh overlay
-bash scripts/run_ros.sh view
+export ISAAC_ROS_WS=/absolute/path/to/isaac_ros-dev
+mkdir -p "$ISAAC_ROS_WS/src" "$ISAAC_ROS_WS/practice"
+python scripts/fetch_ros_assets.py "$ISAAC_ROS_WS"  # 최초 한 번, 기존 자산은 덮어쓰지 않음
+cp -r scripts launch "$ISAAC_ROS_WS/practice/"
+mkdir -p "$ISAAC_ROS_WS/isaac_ros_assets/models/"{yolov8,pucks}
+cp models/yolov8s.onnx "$ISAAC_ROS_WS/isaac_ros_assets/models/yolov8/"
+cp models/pucks.onnx "$ISAAC_ROS_WS/isaac_ros_assets/models/pucks/"
+isaac-ros activate
 ```
 
-자체 4클래스 모델은 기본 80클래스 launch에 바로 연결하지 않습니다. 실제 binding, 클래스 수, 전처리와 좌표 복원을 확인한 뒤 launch/decoder를 맞춰야 합니다. 엔진은 대상 GPU에서 생성합니다.
+Docker 및 NVIDIA Container Toolkit이 설치되어 있어야 합니다. 호스트 초기 설정은 `sudo isaac-ros init docker --yes`, `sudo nvidia-ctk runtime configure --runtime=docker`, `sudo systemctl restart docker`입니다. 실행 중 컨테이너가 없는 때 설정합니다.
+
+활성화된 컨테이너에서:
+
+```bash
+cd /workspaces/isaac_ros-dev/practice
+bash scripts/install_ros_packages.sh  # 새 컨테이너에 최초 한 번
+bash scripts/build_engine.sh "$ISAAC_ROS_WS/isaac_ros_assets/models/yolov8/yolov8s.onnx" "$ISAAC_ROS_WS/isaac_ros_assets/models/yolov8/yolov8s.plan"
+bash scripts/ros_preflight.sh
+ROS_DOMAIN_ID=73 ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST bash scripts/run_ros_verification.sh --output "$ISAAC_ROS_WS/ros-verification" --seconds 30
+```
+
+자동 검증은 detector·rosbag·visualizer를 동시에 실행하고, 실제 검출 메시지와 결과 이미지를 저장한 뒤 자신이 실행한 프로세스를 종료합니다. RQT 창의 수동 조작 대신 이미지 토픽을 저장하여 확인했습니다. 개별 실행은 `bash scripts/run_ros.sh detect|bag|overlay|view`를 각각 별도 터미널에서 사용합니다.
+
+### 4클래스 퍽 모델 연결
+
+`launch/pucks.launch.py`는 입력 `images`, 출력 `output0`, 클래스 수 4, 입력 640×640을 명시합니다. COCO 라벨 대신 퍽 클래스명으로 표시합니다. 합성 test 이미지로 검증하며 실물 카메라 보정이나 실물 퍽 성능을 의미하지 않습니다.
+
+```bash
+# 컨테이너: 엔진 생성
+bash scripts/build_engine.sh "$ISAAC_ROS_WS/isaac_ros_assets/models/pucks/pucks.onnx" "$ISAAC_ROS_WS/isaac_ros_assets/models/pucks/pucks.plan"
+# 같은 ROS_DOMAIN_ID를 지정한 별도 터미널들에서 실행
+ros2 launch ./launch/pucks.launch.py engine_file_path:="$ISAAC_ROS_WS/isaac_ros_assets/models/pucks/pucks.plan"
+python3 scripts/publish_test_image.py /path/in/workspace/puck-test.jpg --image-topic /pucks/image --camera-topic /pucks/camera_info
+python3 scripts/verify_ros.py --output "$ISAAC_ROS_WS/pucks-verification" --seconds 20 --image-topic /pucks/processed_image --detection-topic /pucks/detections
+```
+
+테스트 publisher는 입력 이미지를 640×640으로 resize하고 RGB 이미지와 같은 시각의 CameraInfo를 발행합니다. 출력 상자는 이 640×640 좌표계입니다. 실제 카메라에는 해상도와 calibration에 맞는 CameraInfo가 필요합니다. `scripts/compare_ros_boxes.py`로 같은 이미지의 PyTorch 상자와 ROS 상자를 비교할 수 있습니다. [NVIDIA decoder](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection/blob/release-5.0/isaac_ros_yolov8/src/yolov8_decoder_node.cpp)는 `cv::Rect<int>`에서 좌표와 크기를 절삭하므로, 같은 정수 변환을 적용한 기준으로 비교합니다. 소수점 기준의 원래 IoU도 보고서에 함께 남깁니다. `scripts/check_trt_output.py`는 동일 입력의 ONNX Runtime와 `trtexec --exportOutput` 결과를 비교합니다.
 
 ## 파일과 검증 증거
 
@@ -71,3 +96,15 @@ bash scripts/run_ros.sh view
 - `data/`, `datasets/`, `runs/`, `models/`: 재생성 가능한 로컬 산출물, Git 제외
 
 공식 API 참고: [학습](https://docs.ultralytics.com/modes/train/), [추적](https://docs.ultralytics.com/modes/track/), [ONNX export](https://docs.ultralytics.com/modes/export/). 모델은 YOLOv8을 명시합니다. 외부 모델·데이터·패키지는 각각의 라이선스가 적용됩니다.
+
+## 실제 검증 결과
+
+- 고정 버전 GPU 학습·추적·ONNX: 통과 (`reports/verification.json`)
+- 공식 ROS: 30초 동안 검출 메시지 271개, 결과 영상 프레임 65개
+- 퍽 ROS: 20초 동안 검출 메시지 195개, 프레임당 4개 객체, 결과 영상 프레임 11개
+- 퍽 상자 좌표: decoder 정수 변환 기준 4개 모두 IoU 1.0
+- 합성 test mAP50: 0.995. 실제 퍽 사진 성능을 의미하지 않습니다.
+
+![공식 ROS 검출](reports/ros/ros-detections.jpg)
+
+![합성 퍽 ROS 검출](reports/pucks-ros/ros-detections.jpg)

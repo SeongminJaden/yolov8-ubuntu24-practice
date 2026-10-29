@@ -1,0 +1,8 @@
+lyrical
+NVIDIA GeForce RTX 5060 Laptop GPU, 595.99.02, 8151 MiB
+cuda-toolkit-13-2	13.2.2-1
+libnvinfer10	10.16.1.11-1+cuda13.2
+ros-lyrical-isaac-ros-dnn-image-encoder	5.0.0-0noble.20260918011121000
+ros-lyrical-isaac-ros-examples	5.0.0-0noble.20260918011121000
+ros-lyrical-isaac-ros-tensor-rt	5.0.0-0noble.20260918011121000
+ros-lyrical-isaac-ros-yolov8	5.0.0-0noble.20260918011121000

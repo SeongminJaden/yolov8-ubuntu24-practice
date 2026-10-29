@@ -1,7 +1,12 @@
 test_invalid (test_labels.Labels.test_invalid) ... ok
 test_valid (test_labels.Labels.test_valid) ... ok
+test_isolated_outputs_and_overwrite_protection (test_verification.SyntheticOutputs.test_isolated_outputs_and_overwrite_protection) ... ok
+test_empty_background_still_rejects_invalid_class_count (test_verification.Verification.test_empty_background_still_rejects_invalid_class_count) ... ok
+test_missing_current_artifact_cannot_use_old_run (test_verification.Verification.test_missing_current_artifact_cannot_use_old_run) ... ok
+test_single_label_file_is_validated (test_verification.Verification.test_single_label_file_is_validated) ... ok
+test_tracking_requires_ids_in_processed_frames (test_verification.Verification.test_tracking_requires_ids_in_processed_frames) ... ok
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.000s
+Ran 7 tests in 0.411s
 
 OK

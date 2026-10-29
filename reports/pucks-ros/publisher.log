@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspaces/isaac_ros-dev/publish_test_image.py", line 49, in <module>
+    main()
+  File "/workspaces/isaac_ros-dev/publish_test_image.py", line 40, in main
+    rclpy.spin(node)
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/__init__.py", line 324, in spin
+    executor.spin_once()
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 1020, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 1000, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 970, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 876, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException

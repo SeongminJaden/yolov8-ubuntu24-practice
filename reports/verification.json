@@ -1,4 +1,6 @@
 {
+  "run_id": "d42ca7f947eb",
+  "status": "passed",
   "environment": {
     "torch": "2.9.1+cu128",
     "cuda": "12.8",
@@ -6,14 +8,14 @@
   },
   "bus_prediction": {
     "detections": 6,
-    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check3"
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check_d42ca7f947eb"
   },
   "coco8_train": {
     "epochs": 1,
-    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3"
+    "output": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb"
   },
   "synthetic_test": {
-    "weights": "runs/detect/synthetic_pucks3/weights/best.pt",
+    "weights": "runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.pt",
     "metrics": {
       "metrics/precision(B)": 0.9650190397350155,
       "metrics/recall(B)": 0.99956084481865,

@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/opt/ros/lyrical/lib/isaac_ros_yolov8/isaac_ros_yolov8_visualizer.py", line 191, in <module>
+    main()
+  File "/opt/ros/lyrical/lib/isaac_ros_yolov8/isaac_ros_yolov8_visualizer.py", line 186, in main
+    rclpy.spin(Yolov8Visualizer())
+[ros2run]: Received signal:  Terminated
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/__init__.py", line 324, in spin
+    executor.spin_once()
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 1020, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 1000, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 970, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.12/site-packages/rclpy/executors.py", line 848, in _wait_for_ready_callbacks
+    wait_set = _rclpy.WaitSet(
+               ^^^^^^^^^^^^^^^
+rclpy._rclpy_pybind11.RCLError: failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:110
+[ros2run]: Process exited with failure 1

@@ -1,0 +1,125 @@
+Arguments (pass arguments as '<name>:=<value>'):
+
+    'model_file_path':
+        The absolute file path to the ONNX file
+        (default: '')
+
+    'engine_file_path':
+        The absolute file path to the TensorRT engine file
+        (default: '')
+
+    'input_tensor_names':
+        A list of tensor names to bound to the specified input binding names
+        (default: '["input_tensor"]')
+
+    'tensor_name':
+        The name of the output tensor from the DNN image encoder
+        (default: 'input_tensor')
+
+    'input_binding_names':
+        A list of input tensor binding names (specified by model)
+        (default: '[""]')
+
+    'output_tensor_names':
+        A list of tensor names to bound to the specified output binding names
+        (default: '["output_tensor"]')
+
+    'output_binding_names':
+        A list of output tensor binding names (specified by model)
+        (default: '[""]')
+
+    'verbose':
+        Whether TensorRT should verbosely log or not
+        (default: 'False')
+
+    'force_engine_update':
+        Whether TensorRT should update the TensorRT engine file or not
+        (default: 'False')
+
+    'input_image_width':
+        The input image width
+        (default: '0')
+
+    'input_image_height':
+        The input image height
+        (default: '0')
+
+    'network_image_width':
+        The network image width
+        (default: '0')
+
+    'network_image_height':
+        The network image height
+        (default: '0')
+
+    'image_mean':
+        The mean for image normalization
+        (default: '[0.5, 0.5, 0.5]')
+
+    'image_stddev':
+        The standard deviation for image normalization
+        (default: '[0.5, 0.5, 0.5]')
+
+    'enable_padding':
+        Whether to enable padding or not
+        (default: 'True')
+
+    'input_qos':
+        The QoS settings for the input image
+        (default: 'DEFAULT')
+
+    'output_qos':
+        The QoS settings for the output tensor
+        (default: 'DEFAULT')
+
+    'num_blocks':
+        The number of preallocated memory blocks
+        (default: '40')
+
+    'keep_aspect_ratio':
+        Whether to maintain the aspect ratio or not while resizing
+        (default: 'True')
+
+    'crop_mode':
+        The crop mode to crop the image using
+        (default: 'CENTER')
+
+    'input_encoding':
+        The desired image format encoding
+        (default: 'rgb8')
+
+    'interpolation':
+        The interpolation method used for resizing
+        (default: 'linear')
+
+    'encoding_desired':
+        The desired tensor image encoding
+        (default: 'rgb8')
+
+    'image_input_topic':
+        Input image topic name
+        (default: 'image')
+
+    'camera_info_input_topic':
+        Input camera info topic name
+        (default: 'camera_info')
+
+    'tensor_output_topic':
+        Output tensor topic name
+        (default: 'encoded_tensor')
+
+    'attach_to_shared_component_container':
+        Whether to load components into an existing container
+        (default: 'False')
+
+    'component_container_name':
+        The target component container name
+        (default: 'dnn_image_encoder_container')
+
+    'final_tensor_name':
+        The tensor name of the output of image encoder
+        (default: LaunchConfig('tensor_name'))
+
+    'dnn_image_encoder_namespace':
+        The namespace to put the DNN image encoder under
+        (default: 'dnn_image_encoder')

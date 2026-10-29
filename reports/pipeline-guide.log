@@ -1,79 +1,80 @@
 2.9.1+cu128 0.24.1+cu128 12.8
 PASS GPU + NMS: NVIDIA GeForce RTX 5060 Laptop GPU
 
-image 1/1 /home/seongmin/Projects/yolov8-ubuntu24-practice/data/demo/bus.jpg: 640x480 4 persons, 1 bus, 1 stop sign, 27.9ms
-Speed: 2.5ms preprocess, 27.9ms inference, 1.4ms postprocess per image at shape (1, 3, 640, 480)
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check3[0m
+image 1/1 /home/seongmin/Projects/yolov8-ubuntu24-practice/data/demo/bus.jpg: 640x480 4 persons, 1 bus, 1 stop sign, 81.1ms
+Speed: 1.0ms preprocess, 81.1ms inference, 1.4ms postprocess per image at shape (1, 3, 640, 480)
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_check_d42ca7f947eb
 New https://pypi.org/project/ultralytics/8.4.192 available 😃 Update with 'pip install -U ultralytics'
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 7708MiB)
-[34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=2, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=coco8.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolov8n.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=install_train3, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=runs/detect, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=2, workspace=None
+engine/trainer: agnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=2, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=coco8.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolov8n.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=install_train_d42ca7f947eb, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=runs/detect, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=317, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=2, workspace=None
 
-                   from  n    params  module                                       arguments                     
-  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
-  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
-  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
-  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
-  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
-  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
-  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
-  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
-  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
-  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
- 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
- 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
- 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
- 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
- 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
- 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
- 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
- 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
- 22        [15, 18, 21]  1    897664  ultralytics.nn.modules.head.Detect           [80, [64, 128, 256]]          
+                   from  n    params  module                                       arguments
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]
+ 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]
+ 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]
+ 22        [15, 18, 21]  1    897664  ultralytics.nn.modules.head.Detect           [80, [64, 128, 256]]
 Model summary: 129 layers, 3,157,200 parameters, 3,157,184 gradients, 8.9 GFLOPs
 
 Transferred 70/355 items from pretrained weights
 Freezing layer 'model.22.dfl.conv.weight'
-[34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
-[34m[1mAMP: [0mchecks passed ✅
-[34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 41.0±24.9 MB/s, size: 50.0 KB)
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: checks passed ✅
+train: Fast image access ✅ (ping: 0.0±0.0 ms, read: 2130.3±851.5 MB/s, size: 50.0 KB)
 
-[K[34m[1mtrain: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/train.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 1.7Mit/s 0.0s
-[K[34m[1mtrain: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/train.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 178.5Kit/s 0.0s
-[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 171.0±58.0 MB/s, size: 54.0 KB)
+train: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/train.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 838.9Kit/s 0.0s
+train: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/train.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 85.6Kit/s 0.0s
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 1062.8±605.2 MB/s, size: 54.0 KB)
 
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/val.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 559.2Kit/s 0.0s
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/val.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 75.9Kit/s 0.0s
-Plotting labels to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3/labels.jpg... 
-[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
-[34m[1moptimizer:[0m AdamW(lr=0.000119, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/val.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 299.6Kit/s 0.0s
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/datasets/coco8/labels/val.cache... 4 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 4/4 42.3Kit/s 0.0s
+Plotting labels to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb/labels.jpg...
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically...
+optimizer: AdamW(lr=0.000119, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
 Image sizes 640 train, 640 val
 Using 2 dataloader workers
-Logging results to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3[0m
+Logging results to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb
 Starting training for 1 epochs...
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K        1/1     0.344G      1.946      6.589      2.155          5        640: 0% ──────────── 0/2  0.5s
-[K        1/1     0.344G      2.373      6.695      2.503          6        640: 100% ━━━━━━━━━━━━ 2/2 3.6it/s 0.6s
-[K        1/1     0.344G      2.373      6.695      2.503          6        640: 100% ━━━━━━━━━━━━ 2/2 3.6it/s 0.6s
+        1/1     0.344G      1.946      6.589      2.155          5        640: 0% ──────────── 0/2  1.3s
+        1/1     0.344G      2.373      6.695      2.503          6        640: 50% ━━━━━━────── 1/2 2.8it/s 1.4s<0.4s
+        1/1     0.344G      2.373      6.695      2.503          6        640: 100% ━━━━━━━━━━━━ 2/2 1.4it/s 1.4s
+        1/1     0.344G      2.373      6.695      2.503          6        640: 100% ━━━━━━━━━━━━ 2/2 1.4it/s 1.4s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 2.3it/s 0.4s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 2.3it/s 0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 4.1it/s 0.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 4.1it/s 0.2s
                    all          4         17    0.00028     0.0333   0.000266   3.52e-05
 
 1 epochs completed in 0.001 hours.
-Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3/weights/last.pt, 6.5MB
-Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3/weights/best.pt, 6.5MB
+Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb/weights/last.pt, 6.5MB
+Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb/weights/best.pt, 6.5MB
 
-Validating /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3/weights/best.pt...
+Validating /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb/weights/best.pt...
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 7708MiB)
 Model summary (fused): 72 layers, 3,151,904 parameters, 0 gradients, 8.7 GFLOPs
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 57.2it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 57.0it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 39.5it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 39.4it/s 0.0s
                    all          4         17    0.00028     0.0333   0.000268   3.55e-05
                 person          3         10    0.00168        0.2    0.00161   0.000213
                    dog          1          1          0          0          0          0
@@ -81,267 +82,294 @@ Model summary (fused): 72 layers, 3,151,904 parameters, 0 gradients, 8.7 GFLOPs
               elephant          1          2          0          0          0          0
               umbrella          1          1          0          0          0          0
           potted plant          1          1          0          0          0          0
-Speed: 0.1ms preprocess, 1.2ms inference, 0.0ms loss, 2.0ms postprocess per image
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train3[0m
+Speed: 0.1ms preprocess, 1.5ms inference, 0.0ms loss, 2.4ms postprocess per image
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/install_train_d42ca7f947eb
+/home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset
+PASS: 72 label files (empty files represent background)
 New https://pypi.org/project/ultralytics/8.4.192 available 😃 Update with 'pip install -U ultralytics'
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 7708MiB)
-[34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=4, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=configs/pucks-local.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=10, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.0, hsv_s=0.2, hsv_v=0.2, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolov8n.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=synthetic_pucks3, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=runs/detect, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=317, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=2, workspace=None
+engine/trainer: agnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=4, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=data/verification_d42ca7f947eb/pucks.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=10, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.0, hsv_s=0.2, hsv_v=0.2, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolov8n.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=synthetic_pucks_d42ca7f947eb, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=runs/detect, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=317, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=2, workspace=None
 Overriding model.yaml nc=80 with nc=4
 
-                   from  n    params  module                                       arguments                     
-  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
-  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
-  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
-  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
-  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
-  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
-  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
-  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
-  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
-  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
- 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
- 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
- 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
- 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
- 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
- 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
- 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
- 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
- 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
- 22        [15, 18, 21]  1    752092  ultralytics.nn.modules.head.Detect           [4, [64, 128, 256]]           
+                   from  n    params  module                                       arguments
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]
+ 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]
+ 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]
+ 22        [15, 18, 21]  1    752092  ultralytics.nn.modules.head.Detect           [4, [64, 128, 256]]
 Model summary: 129 layers, 3,011,628 parameters, 3,011,612 gradients, 8.2 GFLOPs
 
 Transferred 319/355 items from pretrained weights
 Freezing layer 'model.22.dfl.conv.weight'
-[34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
-[34m[1mAMP: [0mchecks passed ✅
-[34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 15.4±10.2 MB/s, size: 6.2 KB)
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: checks passed ✅
+train: Fast image access ✅ (ping: 0.0±0.0 ms, read: 40.4±86.3 MB/s, size: 6.2 KB)
 
-[K[34m[1mtrain: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/train.cache... 48 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 48/48 15.5Mit/s 0.0s
-[K[34m[1mtrain: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/train.cache... 48 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 48/48 1.9Mit/s 0.0s
-[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 22.2±17.1 MB/s, size: 6.4 KB)
+train: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/train... 18 images, 0 backgrounds, 0 corrupt: 38% ━━━━──────── 18/48 30.0it/s 0.2s<1.0s
+train: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/train... 48 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 48/48 264.1it/s 0.2s
+train: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/train... 48 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 48/48 264.1it/s 0.2s
+train: New cache created: /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/train.cache
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 22.0±21.5 MB/s, size: 6.4 KB)
 
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/val.cache... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 2.4Mit/s 0.0s
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/val.cache... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 251.7Kit/s 0.0s
-Plotting labels to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3/labels.jpg... 
-[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
-[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/val... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 2.5Kit/s 0.0s
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/val... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 2.5Kit/s 0.0s
+val: New cache created: /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/val.cache
+Plotting labels to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/labels.jpg...
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically...
+optimizer: AdamW(lr=0.00125, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
 Image sizes 640 train, 640 val
 Using 2 dataloader workers
-Logging results to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3[0m
+Logging results to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb
 Starting training for 10 epochs...
 Closing dataloader mosaic
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       1/10     0.574G     0.7628      3.521      1.025         15        640: 0% ──────────── 0/12  1.2s
-[K       1/10     0.574G     0.7526      3.832     0.9789         16        640: 25% ━━━───────── 3/12 8.7it/s 1.3s<1.0s
-[K       1/10     0.584G     0.7446      3.821      0.975         16        640: 58% ━━━━━━━───── 7/12 14.3it/s 1.5s<0.3s
-[K       1/10     0.604G      0.668      3.667     0.9363         16        640: 92% ━━━━━━━━━━━─ 11/12 22.0it/s 1.6s<0.0s
-[K       1/10     0.604G      0.668      3.667     0.9363         16        640: 100% ━━━━━━━━━━━━ 12/12 7.6it/s 1.6s
-[K       1/10     0.604G      0.668      3.667     0.9363         16        640: 100% ━━━━━━━━━━━━ 12/12 7.6it/s 1.6s
+       1/10     0.582G     0.7628      3.521      1.025         15        640: 0% ──────────── 0/12  2.0s
+       1/10     0.582G     0.7526      3.832     0.9789         16        640: 25% ━━━───────── 3/12 7.2it/s 2.1s<1.3s
+       1/10     0.592G     0.7446      3.821      0.975         16        640: 58% ━━━━━━━───── 7/12 9.9it/s 2.4s<0.5s
+       1/10     0.613G      0.668      3.667     0.9363         16        640: 92% ━━━━━━━━━━━─ 11/12 18.3it/s 2.5s<0.1s
+       1/10     0.613G      0.668      3.667     0.9363         16        640: 100% ━━━━━━━━━━━━ 12/12 4.8it/s 2.5s
+       1/10     0.613G      0.668      3.667     0.9363         16        640: 100% ━━━━━━━━━━━━ 12/12 4.8it/s 2.5s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 19.2it/s 0.1s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 19.2it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 1/2 2.7it/s 0.1s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 12.5it/s 0.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 12.5it/s 0.2s
                    all         12         48     0.0111      0.833      0.183      0.155
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       2/10     0.717G     0.5089      3.201     0.8551         16        640: 25% ━━━───────── 3/12 8.3it/s 0.1s<1.1s
-[K       2/10     0.717G     0.4991      2.999     0.8429         16        640: 58% ━━━━━━━───── 7/12 17.6it/s 0.2s<0.3s
-[K       2/10     0.717G     0.4991      2.756     0.8473         14        640: 92% ━━━━━━━━━━━─ 11/12 24.1it/s 0.3s<0.0s
-[K       2/10     0.717G     0.4991      2.756     0.8473         14        640: 100% ━━━━━━━━━━━━ 12/12 38.5it/s 0.3s
-[K       2/10     0.717G     0.4991      2.756     0.8473         14        640: 100% ━━━━━━━━━━━━ 12/12 38.5it/s 0.3s
+       2/10     0.727G     0.5089      3.201     0.8551         16        640: 25% ━━━───────── 3/12 7.8it/s 0.1s<1.2s
+       2/10     0.727G     0.4991      2.999     0.8429         16        640: 58% ━━━━━━━───── 7/12 16.9it/s 0.2s<0.3s
+       2/10     0.727G     0.4991      2.999     0.8429         16        640: 67% ━━━━━━━━──── 8/12 13.9it/s 0.4s<0.3s
+       2/10     0.727G     0.4991      2.756     0.8473         14        640: 92% ━━━━━━━━━━━─ 11/12 18.5it/s 0.5s<0.1s
+       2/10     0.727G     0.4991      2.756     0.8473         14        640: 100% ━━━━━━━━━━━━ 12/12 25.8it/s 0.5s
+       2/10     0.727G     0.4991      2.756     0.8473         14        640: 100% ━━━━━━━━━━━━ 12/12 25.8it/s 0.5s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.9it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.8it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 49.1it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 49.1it/s 0.0s
                    all         12         48     0.0171          1      0.432      0.392
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       3/10     0.717G     0.4807      1.826     0.9052         16        640: 33% ━━━━──────── 4/12 9.7it/s 0.1s<0.8s
-[K       3/10     0.717G     0.5129      1.701     0.9203         15        640: 75% ━━━━━━━━━─── 9/12 19.2it/s 0.2s<0.2s
-[K       3/10     0.717G     0.5164      1.632      0.908         16        640: 100% ━━━━━━━━━━━━ 12/12 40.0it/s 0.3s
-[K       3/10     0.717G     0.5164      1.632      0.908         16        640: 100% ━━━━━━━━━━━━ 12/12 40.0it/s 0.3s
+       3/10     0.742G     0.4807      1.826     0.9052         16        640: 33% ━━━━──────── 4/12 9.3it/s 0.1s<0.9s
+       3/10     0.742G     0.5129      1.701     0.9203         15        640: 75% ━━━━━━━━━─── 9/12 18.8it/s 0.3s<0.2s
+       3/10     0.742G     0.5164      1.632      0.908         16        640: 100% ━━━━━━━━━━━━ 12/12 39.1it/s 0.3s
+       3/10     0.742G     0.5164      1.632      0.908         16        640: 100% ━━━━━━━━━━━━ 12/12 39.1it/s 0.3s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 51.4it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 51.4it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.2it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.2it/s 0.0s
                    all         12         48      0.954     0.0938      0.716      0.668
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       4/10     0.717G     0.4531      1.257     0.8072         15        640: 33% ━━━━──────── 4/12 9.5it/s 0.1s<0.8s
-[K       4/10     0.717G     0.4385      1.205     0.8037         16        640: 67% ━━━━━━━━──── 8/12 17.4it/s 0.2s<0.2s
-[K       4/10     0.717G     0.4357      1.178     0.8077         16        640: 100% ━━━━━━━━━━━━ 12/12 37.7it/s 0.3s
-[K       4/10     0.717G     0.4357      1.178     0.8077         16        640: 100% ━━━━━━━━━━━━ 12/12 37.7it/s 0.3s
+       4/10      0.76G     0.4531      1.257     0.8072         15        640: 33% ━━━━──────── 4/12 10.3it/s 0.1s<0.8s
+       4/10      0.76G     0.4385      1.205     0.8037         16        640: 67% ━━━━━━━━──── 8/12 19.1it/s 0.2s<0.2s
+       4/10      0.76G     0.4357      1.178     0.8077         16        640: 100% ━━━━━━━━━━━━ 12/12 41.5it/s 0.3s
+       4/10      0.76G     0.4357      1.178     0.8077         16        640: 100% ━━━━━━━━━━━━ 12/12 41.5it/s 0.3s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 47.7it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 47.6it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.5it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.5it/s 0.0s
                    all         12         48      0.991       0.31      0.933      0.847
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       5/10     0.717G     0.4754      1.056     0.8362         16        640: 25% ━━━───────── 3/12 8.5it/s 0.1s<1.1s
-[K       5/10     0.717G     0.4596      1.009     0.8344         14        640: 58% ━━━━━━━───── 7/12 17.7it/s 0.2s<0.3s
-[K       5/10     0.717G     0.4499     0.9926     0.8354         16        640: 92% ━━━━━━━━━━━─ 11/12 23.3it/s 0.3s<0.0s
-[K       5/10     0.717G     0.4499     0.9926     0.8354         16        640: 100% ━━━━━━━━━━━━ 12/12 37.7it/s 0.3s
-[K       5/10     0.717G     0.4499     0.9926     0.8354         16        640: 100% ━━━━━━━━━━━━ 12/12 37.7it/s 0.3s
+       5/10     0.777G     0.4754      1.056     0.8362         16        640: 25% ━━━───────── 3/12 8.9it/s 0.1s<1.0s
+       5/10     0.777G     0.4596      1.009     0.8344         14        640: 58% ━━━━━━━───── 7/12 17.6it/s 0.2s<0.3s
+       5/10     0.777G     0.4499     0.9926     0.8354         16        640: 92% ━━━━━━━━━━━─ 11/12 23.0it/s 0.3s<0.0s
+       5/10     0.777G     0.4499     0.9926     0.8354         16        640: 100% ━━━━━━━━━━━━ 12/12 37.6it/s 0.3s
+       5/10     0.777G     0.4499     0.9926     0.8354         16        640: 100% ━━━━━━━━━━━━ 12/12 37.6it/s 0.3s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.5it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.5it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.1it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.0it/s 0.0s
                    all         12         48      0.988      0.822      0.995      0.919
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       6/10     0.717G     0.4748     0.9556     0.8438         16        640: 25% ━━━───────── 3/12 8.9it/s 0.1s<1.0s
-[K       6/10     0.717G     0.4811     0.9275     0.8369         16        640: 67% ━━━━━━━━──── 8/12 18.6it/s 0.2s<0.2s
-[K       6/10     0.717G     0.4699     0.9242      0.836         16        640: 100% ━━━━━━━━━━━━ 12/12 39.6it/s 0.3s
-[K       6/10     0.717G     0.4699     0.9242      0.836         16        640: 100% ━━━━━━━━━━━━ 12/12 39.6it/s 0.3s
+       6/10     0.795G     0.4748     0.9556     0.8438         16        640: 25% ━━━───────── 3/12 8.5it/s 0.1s<1.1s
+       6/10     0.795G     0.4795     0.9165     0.8342         16        640: 58% ━━━━━━━───── 7/12 17.9it/s 0.2s<0.3s
+       6/10     0.795G     0.4699     0.9242      0.836         16        640: 92% ━━━━━━━━━━━─ 11/12 23.0it/s 0.3s<0.0s
+       6/10     0.795G     0.4699     0.9242      0.836         16        640: 100% ━━━━━━━━━━━━ 12/12 37.4it/s 0.3s
+       6/10     0.795G     0.4699     0.9242      0.836         16        640: 100% ━━━━━━━━━━━━ 12/12 37.4it/s 0.3s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 51.3it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 51.3it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 39.8it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 39.7it/s 0.1s
                    all         12         48      0.979      0.972      0.995       0.92
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       7/10     0.717G     0.4324     0.8717     0.8187         16        640: 25% ━━━───────── 3/12 8.8it/s 0.1s<1.0s
-[K       7/10     0.717G     0.4234     0.8513     0.8171         16        640: 58% ━━━━━━━───── 7/12 18.0it/s 0.2s<0.3s
-[K       7/10     0.717G     0.4188     0.8721     0.8166         16        640: 100% ━━━━━━━━━━━━ 12/12 39.6it/s 0.3s
-[K       7/10     0.717G     0.4188     0.8721     0.8166         16        640: 100% ━━━━━━━━━━━━ 12/12 39.6it/s 0.3s
+       7/10     0.811G     0.4328     0.8966      0.833         16        640: 8% ━─────────── 1/12 2.9it/s 0.1s<3.8s
+       7/10     0.811G     0.4324     0.8717     0.8187         16        640: 25% ━━━───────── 3/12 6.2it/s 0.2s<1.5s
+       7/10     0.811G     0.4268     0.8614     0.8239         16        640: 42% ━━━━━─────── 5/12 7.1it/s 0.5s<1.0s
+       7/10     0.811G     0.4234     0.8513     0.8171         16        640: 58% ━━━━━━━───── 7/12 7.6it/s 0.7s<0.7s
+       7/10     0.811G     0.4264     0.8639     0.8191         16        640: 67% ━━━━━━━━──── 8/12 7.5it/s 0.8s<0.5s
+       7/10     0.811G     0.4227     0.8622     0.8153         15        640: 75% ━━━━━━━━━─── 9/12 7.2it/s 1.0s<0.4s
+       7/10     0.811G     0.4188     0.8721     0.8166         16        640: 92% ━━━━━━━━━━━─ 11/12 8.5it/s 1.2s<0.1s
+       7/10     0.811G     0.4188     0.8721     0.8166         16        640: 100% ━━━━━━━━━━━━ 12/12 10.4it/s 1.2s
+       7/10     0.811G     0.4188     0.8721     0.8166         16        640: 100% ━━━━━━━━━━━━ 12/12 10.4it/s 1.2s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 49.3it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 49.3it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.7it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.7it/s 0.1s
                    all         12         48      0.979      0.972      0.995       0.92
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       8/10     0.734G     0.4273     0.8715     0.8393         16        640: 25% ━━━───────── 3/12 8.8it/s 0.1s<1.0s
-[K       8/10     0.734G     0.4119     0.8389     0.8483         16        640: 58% ━━━━━━━───── 7/12 18.0it/s 0.2s<0.3s
-[K       8/10     0.734G     0.4044     0.8419     0.8455         16        640: 100% ━━━━━━━━━━━━ 12/12 39.7it/s 0.3s
-[K       8/10     0.734G     0.4044     0.8419     0.8455         16        640: 100% ━━━━━━━━━━━━ 12/12 39.7it/s 0.3s
+       8/10     0.828G      0.466     0.9046      0.859         16        640: 0% ──────────── 0/12  0.1s
+       8/10     0.828G     0.4128     0.8917     0.8375         16        640: 8% ━─────────── 1/12 2.5it/s 0.3s<4.5s
+       8/10     0.828G     0.4273     0.8715     0.8393         16        640: 25% ━━━───────── 3/12 5.1it/s 0.4s<1.8s
+       8/10     0.828G     0.4063     0.8366     0.8492         16        640: 42% ━━━━━─────── 5/12 6.8it/s 0.6s<1.0s
+       8/10     0.828G     0.4119     0.8389     0.8483         16        640: 58% ━━━━━━━───── 7/12 9.1it/s 0.8s<0.5s
+       8/10     0.828G     0.4165     0.8447     0.8525         15        640: 75% ━━━━━━━━━─── 9/12 10.6it/s 0.9s<0.3s
+       8/10     0.828G     0.4044     0.8419     0.8455         16        640: 92% ━━━━━━━━━━━─ 11/12 12.3it/s 1.0s<0.1s
+       8/10     0.828G     0.4044     0.8419     0.8455         16        640: 100% ━━━━━━━━━━━━ 12/12 11.8it/s 1.0s
+       8/10     0.828G     0.4044     0.8419     0.8455         16        640: 100% ━━━━━━━━━━━━ 12/12 11.8it/s 1.0s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.0it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 50.0it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.4it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.4it/s 0.1s
                    all         12         48      0.968      0.963      0.995      0.927
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K       9/10     0.752G     0.4239     0.8474     0.8592         16        640: 33% ━━━━──────── 4/12 9.9it/s 0.1s<0.8s
-[K       9/10     0.752G     0.4124     0.8391     0.8308         16        640: 67% ━━━━━━━━──── 8/12 18.4it/s 0.2s<0.2s
-[K       9/10     0.752G     0.4048     0.8214     0.8334         15        640: 100% ━━━━━━━━━━━━ 12/12 39.5it/s 0.3s
-[K       9/10     0.752G     0.4048     0.8214     0.8334         15        640: 100% ━━━━━━━━━━━━ 12/12 39.5it/s 0.3s
+       9/10     0.846G     0.4198     0.8098     0.8293         16        640: 8% ━─────────── 1/12 2.1it/s 0.1s<5.2s
+       9/10     0.846G       0.42     0.8332      0.851         16        640: 25% ━━━───────── 3/12 5.6it/s 0.3s<1.6s
+       9/10     0.846G     0.4288      0.851     0.8419         16        640: 42% ━━━━━─────── 5/12 7.3it/s 0.5s<1.0s
+       9/10     0.846G     0.4117     0.8453     0.8419         16        640: 58% ━━━━━━━───── 7/12 9.2it/s 0.6s<0.5s
+       9/10     0.846G     0.4164     0.8354     0.8339         16        640: 75% ━━━━━━━━━─── 9/12 10.4it/s 0.8s<0.3s
+       9/10     0.846G     0.4117     0.8279     0.8325         16        640: 83% ━━━━━━━━━━── 10/12 9.2it/s 0.9s<0.2s
+       9/10     0.846G     0.4048     0.8214     0.8334         15        640: 100% ━━━━━━━━━━━━ 12/12 12.2it/s 1.0s
+       9/10     0.846G     0.4048     0.8214     0.8334         15        640: 100% ━━━━━━━━━━━━ 12/12 12.2it/s 1.0s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 46.9it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 46.9it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 19.7it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 19.7it/s 0.1s
                    all         12         48      0.957          1      0.995      0.953
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
 
-[K      10/10     0.752G     0.3832     0.8044     0.8002         16        640: 33% ━━━━──────── 4/12 9.9it/s 0.1s<0.8s
-[K      10/10     0.752G     0.3809     0.7913     0.8053         16        640: 75% ━━━━━━━━━─── 9/12 18.4it/s 0.3s<0.2s
-[K      10/10     0.752G     0.3804     0.7803     0.8115         16        640: 100% ━━━━━━━━━━━━ 12/12 40.1it/s 0.3s
-[K      10/10     0.752G     0.3804     0.7803     0.8115         16        640: 100% ━━━━━━━━━━━━ 12/12 40.1it/s 0.3s
+      10/10     0.863G     0.3758     0.7826     0.8055         16        640: 8% ━─────────── 1/12 1.9it/s 0.2s<5.7s
+      10/10     0.863G     0.3717      0.803     0.7991         16        640: 25% ━━━───────── 3/12 5.2it/s 0.3s<1.7s
+      10/10     0.863G     0.3783     0.7954      0.808         16        640: 42% ━━━━━─────── 5/12 7.8it/s 0.5s<0.9s
+      10/10     0.863G     0.3786     0.8006     0.7973         15        640: 58% ━━━━━━━───── 7/12 9.9it/s 0.6s<0.5s
+      10/10     0.863G     0.3809     0.7913     0.8053         16        640: 75% ━━━━━━━━━─── 9/12 10.7it/s 0.7s<0.3s
+      10/10     0.863G     0.3804     0.7803     0.8115         16        640: 92% ━━━━━━━━━━━─ 11/12 11.5it/s 0.9s<0.1s
+      10/10     0.863G     0.3804     0.7803     0.8115         16        640: 100% ━━━━━━━━━━━━ 12/12 13.4it/s 0.9s
+      10/10     0.863G     0.3804     0.7803     0.8115         16        640: 100% ━━━━━━━━━━━━ 12/12 13.4it/s 0.9s
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 48.2it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 48.1it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.6it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 17.6it/s 0.1s
                    all         12         48      0.974      0.994      0.995      0.975
 
-10 epochs completed in 0.002 hours.
-Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3/weights/last.pt, 6.2MB
-Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3/weights/best.pt, 6.2MB
+10 epochs completed in 0.003 hours.
+Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/weights/last.pt, 6.2MB
+Optimizer stripped from /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.pt, 6.2MB
 
-Validating /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3/weights/best.pt...
+Validating /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.pt...
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 7708MiB)
 Model summary (fused): 72 layers, 3,006,428 parameters, 0 gradients, 8.1 GFLOPs
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 53.0it/s 0.0s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 53.0it/s 0.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 21.5it/s 0.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 2/2 21.5it/s 0.1s
                    all         12         48      0.974      0.994      0.995      0.975
           red_cylinder         12         12          1      0.975      0.995      0.971
              red_prism         12         12      0.957          1      0.995      0.973
         green_cylinder         12         12      0.959          1      0.995      0.995
            green_prism         12         12       0.98          1      0.995       0.96
-Speed: 0.1ms preprocess, 1.4ms inference, 0.0ms loss, 0.5ms postprocess per image
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3[0m
+Speed: 0.2ms preprocess, 1.5ms inference, 0.0ms loss, 2.0ms postprocess per image
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 7708MiB)
 Model summary (fused): 72 layers, 3,006,428 parameters, 0 gradients, 8.1 GFLOPs
-[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 23.6±21.6 MB/s, size: 6.2 KB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 25.3±14.5 MB/s, size: 5.9 KB)
 
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/test.cache... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 8.4Mit/s 0.0s
-[K[34m[1mval: [0mScanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/synthetic-pucks/labels/test.cache... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 572.0Kit/s 0.0s
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/test... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 1.7Kit/s 0.0s
+val: Scanning /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/test... 12 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 12/12 1.7Kit/s 0.0s
+val: New cache created: /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/dataset/labels/test.cache
 
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 2.9it/s 0.3s
-[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 2.9it/s 0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 5.1it/s 0.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1/1 5.1it/s 0.2s
                    all         12         48      0.965          1      0.995      0.961
           red_cylinder         12         12          1      0.998      0.995      0.956
              red_prism         12         12      0.952          1      0.995       0.96
         green_cylinder         12         12       0.96          1      0.995      0.984
            green_prism         12         12      0.948          1      0.995      0.944
-Speed: 0.6ms preprocess, 3.3ms inference, 0.0ms loss, 0.8ms postprocess per image
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_test3[0m
+Speed: 0.8ms preprocess, 3.8ms inference, 0.0ms loss, 0.7ms postprocess per image
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_test_d42ca7f947eb
 
-video 1/1 (frame 1/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 2.2ms
-video 1/1 (frame 2/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 2.0ms
-video 1/1 (frame 3/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.9ms
-video 1/1 (frame 4/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 5/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 6/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 7/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 8/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 9/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 10/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 11/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 12/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 13/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.7ms
-video 1/1 (frame 14/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 15/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.7ms
-video 1/1 (frame 16/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 17/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 18/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 19/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 20/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 21/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 22/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 23/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 24/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 25/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 26/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 27/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 28/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 29/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
-video 1/1 (frame 30/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 1/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 2.2ms
+video 1/1 (frame 2/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 2.0ms
+video 1/1 (frame 3/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.9ms
+video 1/1 (frame 4/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 5/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 6/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 7/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 8/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 9/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 10/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 11/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 12/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 13/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 14/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 15/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 16/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 17/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 18/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 19/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 20/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 21/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 22/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 23/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 24/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 25/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 26/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 27/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 28/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 29/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
+video 1/1 (frame 30/30) /home/seongmin/Projects/yolov8-ubuntu24-practice/data/verification_d42ca7f947eb/test.mp4: 640x640 1 red_cylinder, 1 red_prism, 1 green_cylinder, 1 green_prism, 1.8ms
 Speed: 0.9ms preprocess, 1.8ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/track/synthetic_track3[0m
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/track/synthetic_track_d42ca7f947eb
 {'frames': 30, 'frames_with_ids': 30}
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CPU (Intel Core Ultra 9 275HX)
 YOLOv8s summary (fused): 72 layers, 11,156,544 parameters, 0 gradients, 28.6 GFLOPs
 
-[34m[1mPyTorch:[0m starting from 'yolov8s.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 84, 8400) (21.5 MB)
+PyTorch: starting from 'yolov8s.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 84, 8400) (21.5 MB)
 
-[34m[1mONNX:[0m starting export with onnx 1.17.0 opset 17...
-[34m[1mONNX:[0m export success ✅ 0.6s, saved as 'yolov8s.onnx' (42.8 MB)
+ONNX: starting export with onnx 1.17.0 opset 17...
+ONNX: export success ✅ 0.5s, saved as 'yolov8s.onnx' (42.8 MB)
 
-Export complete (0.8s)
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice[0m
-Predict:         yolo predict task=detect model=yolov8s.onnx imgsz=640  
-Validate:        yolo val task=detect model=yolov8s.onnx imgsz=640 data=coco.yaml  
+Export complete (0.7s)
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice
+Predict:         yolo predict task=detect model=yolov8s.onnx imgsz=640
+Validate:        yolo val task=detect model=yolov8s.onnx imgsz=640 data=coco.yaml
 Visualize:       https://netron.app
 {'inputs': [{'name': 'images', 'shape': [1, 3, 640, 640]}], 'outputs': [{'name': 'output0', 'shape': [1, 84, 8400]}]}
 Ultralytics 8.3.221 🚀 Python-3.12.3 torch-2.9.1+cu128 CPU (Intel Core Ultra 9 275HX)
 Model summary (fused): 72 layers, 3,006,428 parameters, 0 gradients, 8.1 GFLOPs
 
-[34m[1mPyTorch:[0m starting from 'runs/detect/synthetic_pucks3/weights/best.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 8, 8400) (6.0 MB)
+PyTorch: starting from 'runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 8, 8400) (6.0 MB)
 
-[34m[1mONNX:[0m starting export with onnx 1.17.0 opset 17...
-[34m[1mONNX:[0m export success ✅ 0.2s, saved as 'runs/detect/synthetic_pucks3/weights/best.onnx' (11.7 MB)
+ONNX: starting export with onnx 1.17.0 opset 17...
+ONNX: export success ✅ 0.2s, saved as 'runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.onnx' (11.7 MB)
 
 Export complete (0.3s)
-Results saved to [1m/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks3/weights[0m
-Predict:         yolo predict task=detect model=runs/detect/synthetic_pucks3/weights/best.onnx imgsz=640  
-Validate:        yolo val task=detect model=runs/detect/synthetic_pucks3/weights/best.onnx imgsz=640 data=configs/pucks-local.yaml  
+Results saved to /home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/synthetic_pucks_d42ca7f947eb/weights
+Predict:         yolo predict task=detect model=runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.onnx imgsz=640
+Validate:        yolo val task=detect model=runs/detect/synthetic_pucks_d42ca7f947eb/weights/best.onnx imgsz=640 data=data/verification_d42ca7f947eb/pucks.yaml
 Visualize:       https://netron.app
 {'inputs': [{'name': 'images', 'shape': [1, 3, 640, 640]}], 'outputs': [{'name': 'output0', 'shape': [1, 8, 8400]}]}
 PASS all available pipeline stages

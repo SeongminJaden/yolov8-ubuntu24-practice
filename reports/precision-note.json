@@ -1,0 +1,8 @@
+{
+  "model": "yolov8s",
+  "comparison": "Same seeded FP32 input, ONNX Runtime CPU versus TensorRT",
+  "tolerance": {"rtol": 0.001, "atol": 0.01},
+  "initial_default_tf32": {"passed": false, "max_absolute_error": 1.217437744140625},
+  "resolution": "Rebuilt with --noTF32; did not relax comparison tolerance",
+  "final_no_tf32": {"passed": true, "max_absolute_error": 0.0018310546875}
+}

@@ -16,6 +16,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--seconds', type=float, default=30)
+    p.add_argument('--image-topic', default='/yolov8_processed_image')
+    p.add_argument('--detection-topic')
     a = p.parse_args()
     a.output.mkdir(parents=True, exist_ok=True)
     rclpy.init()
@@ -53,14 +55,16 @@ def main():
             result['topics'] = topics
             if detection_topic is None:
                 matches = [n for n,t in topics.items() if 'vision_msgs/msg/Detection2DArray' in t]
+                if a.detection_topic:
+                    matches = [n for n in matches if n == a.detection_topic]
                 if len(matches) > 1:
                     raise RuntimeError(f'Ambiguous detection topics: {matches}')
                 if matches:
                     detection_topic = matches[0]
                     subscriptions.append(node.create_subscription(
                         Detection2DArray, detection_topic, detection, qos_profile_sensor_data))
-            if image_topic is None and '/yolov8_processed_image' in topics:
-                image_topic = '/yolov8_processed_image'
+            if image_topic is None and a.image_topic in topics:
+                image_topic = a.image_topic
                 subscriptions.append(node.create_subscription(Image, image_topic, image, qos_profile_sensor_data))
             rclpy.spin_once(node, timeout_sec=0.1)
     finally:

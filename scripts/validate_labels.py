@@ -3,6 +3,8 @@ import math
 from pathlib import Path
 
 def validate_line(line, classes):
+    if not isinstance(classes, int) or isinstance(classes, bool) or classes <= 0:
+        raise ValueError('classes must be a positive integer')
     parts=line.split()
     if len(parts)!=5: raise ValueError('expected class x y w h')
     c,x,y,w,h=map(float,parts)
@@ -18,7 +20,8 @@ def main():
     p.add_argument('--kind',choices=['yolo'],default='yolo')
     p.add_argument('--classes',type=int,default=4)
     a=p.parse_args()
-    files=sorted(a.path.rglob('*.txt'))
+    if a.classes <= 0: p.error('--classes must be positive')
+    files=[a.path] if a.path.is_file() and a.path.suffix == '.txt' else sorted(a.path.rglob('*.txt'))
     if not files: p.error('No label files')
     errors=[]
     for f in files:

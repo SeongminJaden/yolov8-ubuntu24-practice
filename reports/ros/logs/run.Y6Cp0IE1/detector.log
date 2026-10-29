@@ -1,0 +1,53 @@
+[INFO] [launch]: All log files can be found below /home/admin/.ros/log/2026-10-29-13-00-38-993208-ros-6972
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container_mt-1]: process started with pid [7016]
+[component_container_mt-1] [WARN] [1793246439.054255272] [component_container_mt]: This executable is deprecated and will be removed in M-turtle.
+[component_container_mt-1] Use 'component_container --executor-type multi-threaded' instead.
+[component_container_mt-1] [INFO] [1793246439.289409951] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libresize_node.so
+[component_container_mt-1] [INFO] [1793246439.292468596] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ResizeNode>
+[component_container_mt-1] [INFO] [1793246439.292491097] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ResizeNode>
+[component_container_mt-1] [INFO] [1793246439.565010059] [yolov8_encoder.resize_node]: [ResizeNode] ResizeNode initialized
+[component_container_mt-1] [INFO] [1793246439.565209386] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libtensor_rt_node.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/resize_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.599736091] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::TensorRTNode>
+[component_container_mt-1] [INFO] [1793246439.599776409] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::TensorRTNode>
+[component_container_mt-1] [INFO] [1793246439.602584864] [tensor_rt]: Initializing TensorRT engine...
+[component_container_mt-1] [INFO] [1793246439.626290309] [TRT]: TRT INFO: Loaded engine size: 53 MiB
+[component_container_mt-1] [INFO] [1793246439.646009854] [tensor_rt]: Loaded TensorRT engine from file: /workspaces/isaac_ros-dev/isaac_ros_assets/models/yolov8/yolov8s.plan successfully
+[component_container_mt-1] [INFO] [1793246439.671359032] [TRT]: TRT INFO: [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +55, now: CPU 0, GPU 107 (MiB)
+[component_container_mt-1] [INFO] [1793246439.671376291] [tensor_rt]: Number of CUDA bindings: 2
+[component_container_mt-1] [INFO] [1793246439.671394980] [tensor_rt]: Tensor name images: Format Row major linear FP32 format (kLINEAR)
+[component_container_mt-1] [INFO] [1793246439.671397371] [tensor_rt]: Tensor name output0: Format Row major linear FP32 format (kLINEAR)
+[component_container_mt-1] [INFO] [1793246439.671398809] [tensor_rt]: TensorRT engine initialized successfully
+[component_container_mt-1] [INFO] [1793246439.672831364] [tensor_rt]: [TensorRTNode] TensorRT Node initialized successfully
+[component_container_mt-1] [INFO] [1793246439.673025668] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libimage_format_converter_node.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/tensor_rt' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.673949201] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ImageFormatConverterNode>
+[component_container_mt-1] [INFO] [1793246439.673958788] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::ImageFormatConverterNode>
+[component_container_mt-1] [INFO] [1793246439.676608136] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libyolov8_decoder_node.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/image_format_converter_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.681438583] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::yolov8::YoloV8DecoderNode>
+[component_container_mt-1] [INFO] [1793246439.681456584] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::yolov8::YoloV8DecoderNode>
+[component_container_mt-1] [INFO] [1793246439.684459757] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libcrop_node.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_decoder_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.685561582] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::CropNode>
+[component_container_mt-1] [INFO] [1793246439.685569874] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::image_proc::CropNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/crop_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.689453702] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libimage_to_tensor_node.so
+[component_container_mt-1] [INFO] [1793246439.690318671] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageToTensorNode>
+[component_container_mt-1] [INFO] [1793246439.690326396] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageToTensorNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/image_to_tensor' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.694031093] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libimage_tensor_normalize_node.so
+[component_container_mt-1] [INFO] [1793246439.694845916] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageTensorNormalizeNode>
+[component_container_mt-1] [INFO] [1793246439.694854818] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ImageTensorNormalizeNode>
+[component_container_mt-1] [INFO] [1793246439.699429892] [yolov8_encoder.normalize_node]: [ImageTensorNormalizeNode] Setup complete
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/normalize_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.699946861] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libinterleaved_to_planar_node.so
+[component_container_mt-1] [INFO] [1793246439.700593213] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::InterleavedToPlanarNode>
+[component_container_mt-1] [INFO] [1793246439.700600931] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::InterleavedToPlanarNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/interleaved_to_planar_node' in container '/isaac_ros_examples/container'
+[component_container_mt-1] [INFO] [1793246439.703182064] [isaac_ros_examples.container]: Load Library: /opt/ros/lyrical/lib/libreshape_node.so
+[component_container_mt-1] [INFO] [1793246439.703994743] [isaac_ros_examples.container]: Found class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ReshapeNode>
+[component_container_mt-1] [INFO] [1793246439.704002809] [isaac_ros_examples.container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nvidia::isaac_ros::dnn_inference::ReshapeNode>
+[component_container_mt-1] [INFO] [1793246439.706999173] [yolov8_encoder.reshape_node]: [ReshapeNode] Setup complete
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/yolov8_encoder/reshape_node' in container '/isaac_ros_examples/container'

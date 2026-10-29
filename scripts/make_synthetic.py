@@ -1,4 +1,5 @@
 """Synthetic colored shapes for pipeline verification, not real puck accuracy."""
+import argparse
 import random
 from pathlib import Path
 import cv2
@@ -17,18 +18,28 @@ def frame(rng):
     return im,labels
 
 def main():
-    root=Path('data/synthetic-pucks').resolve()
-    if root.exists(): raise SystemExit('Output already exists; use a fresh directory')
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=Path('data/synthetic-pucks'))
+    parser.add_argument('--config', type=Path, default=Path('configs/pucks-local.yaml'))
+    parser.add_argument('--video', type=Path, default=Path('data/test.mp4'))
+    args=parser.parse_args()
+    root=args.output.resolve()
+    # Check all outputs before writing anything; never overwrite a real-data config.
+    for target in (root, args.config, args.video):
+        if target.exists(): raise SystemExit(f'Output already exists; choose a fresh path: {target}')
+    args.config.parent.mkdir(parents=True, exist_ok=True)
+    args.video.parent.mkdir(parents=True, exist_ok=True)
     for split,n,seed in [('train',48,317),('val',12,318),('test',12,319)]:
         rng=random.Random(seed)
         for sub in ['images','labels']: (root/sub/split).mkdir(parents=True)
         for i in range(n):
             im,labels=frame(rng)
-            assert cv2.imwrite(str(root/'images'/split/f'{i:04}.jpg'),im)
+            if not cv2.imwrite(str(root/'images'/split/f'{i:04}.jpg'),im):
+                raise RuntimeError('Image write failed')
             (root/'labels'/split/f'{i:04}.txt').write_text('\n'.join(labels)+'\n')
-    cfg=yaml.safe_load(Path('configs/pucks.yaml').read_text());cfg['path']=str(root)
-    Path('configs/pucks-local.yaml').write_text(yaml.safe_dump(cfg,sort_keys=False))
-    writer=cv2.VideoWriter('data/test.mp4',cv2.VideoWriter_fourcc(*'mp4v'),10,(320,320))
+    cfg=yaml.safe_load((Path(__file__).resolve().parents[1]/'configs/pucks.yaml').read_text());cfg['path']=str(root)
+    args.config.write_text(yaml.safe_dump(cfg,sort_keys=False))
+    writer=cv2.VideoWriter(str(args.video),cv2.VideoWriter_fourcc(*'mp4v'),10,(320,320))
     if not writer.isOpened(): raise RuntimeError('Video writer unavailable')
     im,_=frame(random.Random(320))
     for i in range(30): writer.write(cv2.warpAffine(im,np.float32([[1,0,i/3],[0,1,0]]),(320,320),borderMode=cv2.BORDER_REFLECT))

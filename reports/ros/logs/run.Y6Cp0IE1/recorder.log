@@ -1,0 +1,209 @@
+{
+  "detection_messages": 271,
+  "detections": 2710,
+  "rendered_images": 65,
+  "topics": {
+    "/camera_info_rect": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/detections_output": [
+      "vision_msgs/msg/Detection2DArray"
+    ],
+    "/events/read_split": [
+      "rosbag2_interfaces/msg/ReadSplitEvent"
+    ],
+    "/image_rect": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/image_rect/_buf/010f70cd681b89150000000000001c04": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/image_rect/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/parameter_events": [
+      "rcl_interfaces/msg/ParameterEvent"
+    ],
+    "/rosout": [
+      "rcl_interfaces/msg/Log"
+    ],
+    "/tensor_pub": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/tensor_sub": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/yolov8_encoder/converted/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/converted/image/_buf/010f70cd681b89150000000000006a04": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/converted/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/crop/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/yolov8_encoder/crop/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/crop/image/_buf/010f70cd681b89150000000000008004": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/crop/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/image_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/yolov8_encoder/normalized_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/yolov8_encoder/planar_tensor": [
+      "isaac_ros_tensor_msgs/msg/TensorList"
+    ],
+    "/yolov8_encoder/resize/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/yolov8_encoder/resize/image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/resize/image/_buf/010f70cd681b89150000000000004404": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_encoder/resize/image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_processed_image": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/yolov8_processed_image/_buf_cpu": [
+      "sensor_msgs/msg/Image"
+    ]
+  },
+  "first_detections": [
+    {
+      "center_x": 347.0,
+      "center_y": 352.0,
+      "width": 172.0,
+      "height": 250.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.9127015471458435
+        }
+      ]
+    },
+    {
+      "center_x": 77.0,
+      "center_y": 390.0,
+      "width": 156.0,
+      "height": 366.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.9012956023216248
+        }
+      ]
+    },
+    {
+      "center_x": 520.0,
+      "center_y": 358.0,
+      "width": 224.0,
+      "height": 354.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.8991680145263672
+        }
+      ]
+    },
+    {
+      "center_x": 385.0,
+      "center_y": 411.0,
+      "width": 102.0,
+      "height": 174.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.8806027770042419
+        }
+      ]
+    },
+    {
+      "center_x": 80.5,
+      "center_y": 502.5,
+      "width": 131.0,
+      "height": 273.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.8513784408569336
+        }
+      ]
+    },
+    {
+      "center_x": 532.5,
+      "center_y": 484.0,
+      "width": 105.0,
+      "height": 278.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.8396599292755127
+        }
+      ]
+    },
+    {
+      "center_x": 275.5,
+      "center_y": 381.0,
+      "width": 69.0,
+      "height": 120.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.6907632350921631
+        }
+      ]
+    },
+    {
+      "center_x": 273.0,
+      "center_y": 331.0,
+      "width": 66.0,
+      "height": 158.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.49840661883354187
+        }
+      ]
+    },
+    {
+      "center_x": 135.5,
+      "center_y": 419.5,
+      "width": 33.0,
+      "height": 101.0,
+      "hypotheses": [
+        {
+          "class_id": "1",
+          "score": 0.3542223274707794
+        }
+      ]
+    },
+    {
+      "center_x": 134.5,
+      "center_y": 289.0,
+      "width": 55.0,
+      "height": 90.0,
+      "hypotheses": [
+        {
+          "class_id": "0",
+          "score": 0.350510835647583
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 30.004076150999936,
+  "detection_topic": "/detections_output"
+}
