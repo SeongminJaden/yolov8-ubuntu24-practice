@@ -13,3 +13,7 @@ configs/*-local.yaml
 # Intermediate tagged-puck diagnostic runs; final v4 reports are versioned.
 reports/tagged-pucks/
 reports/tagged-pucks-v4/**/frames.jsonl
+
+# Local ROS workspace and generated assets
+work/
+reports/relocation-check/

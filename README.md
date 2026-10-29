@@ -63,10 +63,10 @@ python scripts/inspect_onnx.py models/pucks.onnx
 
 실제 설치: Isaac ROS 5.0.0 / ROS Lyrical, CUDA Toolkit 13.2.2, TensorRT 10.16.1.11. RTX 5060 Laptop GPU에서 컨테이너 GPU 인식, 두 모델의 엔진 생성, ONNX Runtime와 TensorRT 수치 비교를 검증했습니다. 기본 TF32 엔진은 엄격한 수치 비교에서 차이가 나서 재현 스크립트는 `--noTF32`로 생성합니다. 엔진은 대상 GPU에서 다시 만드세요.
 
-호스트에서 공유 workspace를 준비합니다. `ISAAC_ROS_WS`는 본인의 실제 경로로 지정하세요. 이 장비는 저장소 상위의 `work/isaac_ros-dev`를 사용했습니다.
+호스트에서 공유 workspace를 준비합니다. `ISAAC_ROS_WS`는 본인의 실제 경로로 지정하세요. 이 장비의 프로젝트 경로는 `/home/seongmin/Projects/yolov8-ubuntu24-practice`이며, 공유 workspace는 프로젝트 내부의 `work/isaac_ros-dev`입니다.
 
 ```bash
-export ISAAC_ROS_WS=/absolute/path/to/isaac_ros-dev
+export ISAAC_ROS_WS="$PWD/work/isaac_ros-dev"
 mkdir -p "$ISAAC_ROS_WS/src" "$ISAAC_ROS_WS/practice"
 python scripts/fetch_ros_assets.py "$ISAAC_ROS_WS"  # 최초 한 번, 기존 자산은 덮어쓰지 않음
 cp -r scripts launch "$ISAAC_ROS_WS/practice/"
@@ -125,3 +125,5 @@ python3 scripts/verify_ros.py --output "$ISAAC_ROS_WS/pucks-verification" --seco
 ![공식 ROS 검출](reports/ros/ros-detections.jpg)
 
 ![합성 퍽 ROS 검출](reports/pucks-ros/ros-detections.jpg)
+
+기존 검증 로그의 호스트 경로는 프로젝트 이동에 맞춰 정규화했습니다. 측정값과 모델 파일은 변경하지 않았습니다.
