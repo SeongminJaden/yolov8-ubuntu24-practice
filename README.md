@@ -2,6 +2,14 @@
 
 [원문 설치 가이드](https://velog.io/@roboticsmaster/Ubuntu-24.04-YOLOv8-실습-설치-가이드)의 학습 흐름을 실행 가능한 스크립트로 새로 구현했습니다. 원문에서 언급한 배포 ZIP은 제공되지 않았으므로 그 ZIP의 코드나 12개 테스트를 복제한 저장소가 아닙니다.
 
+## 실습 안내
+
+처음 실행한다면 아래 문서 순서로 진행하세요. 현재 로컬 프로젝트는 `/home/seongmin/Projects/yolov8-ubuntu24-practice`입니다.
+
+1. [실습 순서: 환경 확인 → 한 장 추론 → 평가 → Sim 생성·학습 → 실시간](docs/PRACTICE_GUIDE.md)
+2. [라벨링 자료 위치·클래스 규칙·내 데이터 학습·CenterPose 정답 준비](docs/DATASET_GUIDE.md)
+3. [코드별 역할과 파라미터·크기·태그·토픽 수정 위치](docs/CODE_GUIDE.md)
+
 ## 30×30×60mm / Ø30×60mm 태그 퍽 통합 인식
 
 새 실규격으로 빨강·초록 직육면체/원기둥을 생성하고 **YOLO 형상·색상 + CenterPose 물체 중심/자세 + AprilTag ID/위치**를 통합했습니다. 물체 중심과 표면 태그 위치는 별도로 출력합니다.
