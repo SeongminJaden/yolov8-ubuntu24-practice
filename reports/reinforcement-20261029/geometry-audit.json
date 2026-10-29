@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "faces_checked": 56,
+  "black_size_m": 0.016,
+  "center_distances_m": [
+    0.01503,
+    0.03003
+  ]
+}

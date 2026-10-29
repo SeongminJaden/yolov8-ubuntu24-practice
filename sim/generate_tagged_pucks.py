@@ -10,6 +10,12 @@ import time
 
 NAMES=['red_cylinder','red_prism','green_cylinder','green_prism']
 
+def split_seed_ranges(train, val, test, seed_base):
+    if min(train, val, test, seed_base) < 0:
+        raise ValueError('Counts and seed base must be nonnegative')
+    return [('train',train,seed_base),('val',val,seed_base+train),
+            ('test',test,seed_base+train+val)]
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--output',type=Path,required=True)
@@ -17,6 +23,8 @@ def main():
     p.add_argument('--val',type=int,default=40)
     p.add_argument('--test',type=int,default=80)
     p.add_argument('--video-frames',type=int,default=120)
+    p.add_argument('--prism-tags',choices=['top','six_faces'],default='six_faces')
+    p.add_argument('--seed-base',type=int,default=100000,help='First scene seed; choose a fresh range for independent datasets')
     p.add_argument('--tag-size',type=float,default=.016)
     p.add_argument('--tag-patterns',type=Path,default=Path(__file__).resolve().parents[1]/'configs/tags/tag36h11.json')
     a=p.parse_args()
@@ -50,6 +58,8 @@ def main():
         UsdShade.MaterialBindingAPI.Apply(ground.GetPrim()).Bind(table_mat)
         targets=[]
         tags=[]
+        face_transforms={}
+        face_paths={}
         black,_=material('/World/TagBlack',(.001,.001,.001))
         white,_=material('/World/TagWhite',(.95,.95,.95))
         def tile(path, bounds, mat):
@@ -61,13 +71,25 @@ def main():
             UsdShade.MaterialBindingAPI.Apply(mesh.GetPrim()).Bind(mat)
         for c in range(4):
             tag=UsdGeom.Xform.Define(stage,f'/World/Tag{c}')
-            top=a.tag_size*1.25/2
-            tile(f'/World/Tag{c}/White',(-top,-top,top,top,.03002),white)
-            for row,pixels in enumerate(patterns[str(c)]):
-                for col,pixel in enumerate(pixels):
-                    x=-a.tag_size/2+col*a.tag_size/8
-                    y=a.tag_size/2-(row+1)*a.tag_size/8
-                    tile(f'/World/Tag{c}/Pixel{row}_{col}',(x,y,x+a.tag_size/8,y+a.tag_size/8,.03003),black)
+            specs=[('pz',(0,0,1),.03)]
+            if c%2 and a.prism_tags=='six_faces':
+                specs += [('nz',(0,0,-1),.03),('px',(1,0,0),.015),
+                          ('nx',(-1,0,0),.015),('py',(0,1,0),.015),('ny',(0,-1,0),.015)]
+            face_transforms[c]=[];face_paths[c]=[]
+            for face,normal,distance in specs:
+                path=f'/World/Tag{c}/{face}'
+                rot=Gf.Matrix4d().SetRotate(Gf.Rotation(Gf.Vec3d(0,0,1),Gf.Vec3d(*normal)))
+                transform=rot*Gf.Matrix4d().SetTranslate(Gf.Vec3d(*normal)*(distance+.00003))
+                face_transforms[c].append((face,transform))
+                face_paths[c].append(path)
+                UsdGeom.Xform.Define(stage,path).AddTransformOp().Set(transform)
+                top=a.tag_size*1.25/2
+                tile(path+'/White',(-top,-top,top,top,-.00001),white)
+                for row,pixels in enumerate(patterns[str(c)]):
+                    for col,pixel in enumerate(pixels):
+                        x=-a.tag_size/2+col*a.tag_size/8
+                        y=a.tag_size/2-(row+1)*a.tag_size/8
+                        tile(f'{path}/Pixel{row}_{col}',(x,y,x+a.tag_size/8,y+a.tag_size/8,0),black)
             tags.append((tag,tag.AddTransformOp()))
         for c,name in enumerate(NAMES):
             path='/World/'+name
@@ -97,24 +119,36 @@ def main():
         rgb=rep.AnnotatorRegistry.get_annotator('rgb');rgb.attach([rp])
         bbox=rep.AnnotatorRegistry.get_annotator('bounding_box_2d_tight');bbox.attach([rp])
         manifest={'source':'isaac_sim','isaac_sim_version':'6.1.0.0','resolution':[640,640],
-                  'classes':NAMES,'dimensions_m':[.03,.03,.06],'tag_family':'tag36h11','tag_size_m':a.tag_size,'tag_ids':list(range(16)),'camera_intrinsics':{'fx':640*24/20.955,'fy':640*24/20.955,'cx':320,'cy':320},'annotation':'RTX bounding_box_2d_tight','samples':[], 'video':[]}
+                  'classes':NAMES,'dimensions_m':[.03,.03,.06],'prism_tag_mount':a.prism_tags,'tag_family':'tag36h11','tag_size_m':a.tag_size,'tag_ids':list(range(16)),'camera_intrinsics':{'fx':640*24/20.955,'fy':640*24/20.955,'cx':320,'cy':320},'annotation':'RTX bounding_box_2d_tight','samples':[], 'video':[]}
         out.mkdir(parents=True)
-        def set_pose(c,x,y,yaw,scale=1):
-            g,op=targets[c]
-            size=(.030,.030,.060) if c%2 else (1,1,1)
-            m=Gf.Matrix4d().SetScale(Gf.Vec3d(*size))
-            m=m*Gf.Matrix4d().SetRotate(Gf.Rotation(Gf.Vec3d(0,0,1),yaw))
-            m=m*Gf.Matrix4d().SetTranslate(Gf.Vec3d(x,y,.03))
-            op.Set(m)
-            tags[c][1].Set(Gf.Matrix4d().SetRotate(Gf.Rotation(Gf.Vec3d(0,0,1),yaw))*Gf.Matrix4d().SetTranslate(Gf.Vec3d(x,y,.03)))
+        def set_pose(c, x, y, yaw, scale=1):
+            g, op = targets[c]
+            is_prism = c % 2 == 1
+            tilt = 90.0 if is_prism else 0.0
+            center_z = 0.015 if is_prism else 0.030
+            tilt_matrix = Gf.Matrix4d().SetRotate(
+                Gf.Rotation(Gf.Vec3d(1, 0, 0), tilt)
+            )
+            yaw_matrix = Gf.Matrix4d().SetRotate(
+                Gf.Rotation(Gf.Vec3d(0, 0, 1), yaw)
+            )
+            translation = Gf.Matrix4d().SetTranslate(
+                Gf.Vec3d(x, y, center_z)
+            )
+            pose = tilt_matrix * yaw_matrix * translation
+            size = (0.030, 0.030, 0.060) if is_prism else (1, 1, 1)
+            scaling = Gf.Matrix4d().SetScale(Gf.Vec3d(*size))
+            op.Set(scaling * pose)
+            tags[c][1].Set(pose)
         def setup(seed,condition,negative=False,phase=None):
             rng=random.Random(seed)
             tag_ids=rng.sample(range(16),4)
             for c,tid in enumerate(tag_ids):
-                for row,pixels in enumerate(patterns[str(tid)]):
-                    for col,pixel in enumerate(pixels):
-                        prim=UsdGeom.Imageable(stage.GetPrimAtPath(f'/World/Tag{c}/Pixel{row}_{col}'))
-                        prim.GetVisibilityAttr().Set(UsdGeom.Tokens.inherited) if pixel==0 else prim.GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
+                for path in face_paths[c]:
+                    for row,pixels in enumerate(patterns[str(tid)]):
+                        for col,pixel in enumerate(pixels):
+                            prim=UsdGeom.Imageable(stage.GetPrimAtPath(f'{path}/Pixel{row}_{col}'))
+                            prim.GetVisibilityAttr().Set(UsdGeom.Tokens.inherited) if pixel==0 else prim.GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
                 tags[c][0].GetPrim().CreateAttribute('tag_id',Sdf.ValueTypeNames.Int).Set(tid)
             for c,(g,op) in enumerate(targets):
                 UsdGeom.Imageable(g.GetPrim()).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible) if negative else UsdGeom.Imageable(g.GetPrim()).GetVisibilityAttr().Set(UsdGeom.Tokens.inherited)
@@ -162,12 +196,17 @@ def main():
                 corners=[[x,y,z] for x in [-.015,.015] for y in [-.015,.015] for z in [-.03,.03]]
                 pts=[optical(m.Transform(Gf.Vec3d(*p))) for p in [[0,0,0]]+corners]
                 h=a.tag_size/2
-                tc=[optical(m.Transform(Gf.Vec3d(x,y,.03003))) for x,y in [(-h,h),(h,h),(h,-h),(-h,-h)]]
-                poses.append(dict(class_id=c,tag_id=tags[c][0].GetPrim().GetAttribute('tag_id').Get(),center_camera_m=pts[0],cuboid_camera_m=pts,projected_cuboid=[project(q) for q in pts],tag_corners_camera_m=tc,tag_corners_px=[project(q) for q in tc]))
+                tag_faces=[]
+                for face,local in face_transforms[c]:
+                    world=local*m
+                    tc=[optical(world.Transform(Gf.Vec3d(x,y,0))) for x,y in [(-h,h),(h,h),(h,-h),(-h,-h)]]
+                    tag_faces.append(dict(face=face,tag_corners_camera_m=tc,tag_corners_px=[project(q) for q in tc]))
+                tc=tag_faces[0]['tag_corners_camera_m']
+                poses.append(dict(tag_faces=tag_faces,class_id=c,tag_id=tags[c][0].GetPrim().GetAttribute('tag_id').Get(),center_camera_m=pts[0],cuboid_camera_m=pts,projected_cuboid=[project(q) for q in pts],tag_corners_camera_m=tc,tag_corners_px=[project(q) for q in tc]))
             return pixels[:,:,:3],rows,boxes,poses
         setup(317,'normal')
         for _ in range(10):app.update()
-        for split,count,base in [('train',a.train,1000),('val',a.val,3000),('test',a.test,5000)]:
+        for split,count,base in split_seed_ranges(a.train,a.val,a.test,a.seed_base):
             (out/'images'/split).mkdir(parents=True);(out/'labels'/split).mkdir(parents=True)
             for i in range(count):
                 condition=['normal','dark','bright','occlusion','low_angle'][i%5]
@@ -183,10 +222,10 @@ def main():
         if a.video_frames:
             (out/'video').mkdir()
             for i in range(a.video_frames):
-                setup(10000,'normal',phase=i*.05)
+                setup(a.seed_base+a.train+a.val+a.test,'normal',phase=i*.05)
                 pixels,labels,boxes,poses=capture();name=f'video/{i:04}.png'
                 Image.fromarray(pixels).save(out/name)
-                manifest['video'].append(dict(image=name,frame=i,session_id='video_scene_10000',boxes=boxes,poses=poses))
+                manifest['video'].append(dict(image=name,frame=i,session_id=f'video_scene_{a.seed_base+a.train+a.val+a.test}',boxes=boxes,poses=poses))
         stage.GetRootLayer().Export(str(out/'scene.usda'))
         (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
         import yaml

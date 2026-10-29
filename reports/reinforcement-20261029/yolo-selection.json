@@ -1,0 +1,8 @@
+{
+  "baseline": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/tagged-practice-20261029-143148/weights/best.pt",
+  "candidate": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/tagged-sixface-reinforced-20261029/weights/best.pt",
+  "baseline_val_map5095": 0.9788819686626699,
+  "candidate_val_map5095": 0.9936308851338481,
+  "selected": "/home/seongmin/Projects/yolov8-ubuntu24-practice/runs/detect/tagged-sixface-reinforced-20261029/weights/best.pt",
+  "selection_rule": "higher validation mAP50-95; retain baseline on ties"
+}

@@ -20,7 +20,7 @@ NAMES=['red_cylinder','red_prism','green_cylinder','green_prism']
 def tag_detector():
     return Detector(families='tag36h11',nthreads=2,quad_decimate=1.0,refine_edges=1)
 
-def detect_tags(image,K,size=.016):
+def detect_tags(image,K,size=.016,prism_tag_mount="top"):
     detections=tag_detector().detect(cv2.cvtColor(image,cv2.COLOR_BGR2GRAY))
     # Normalize Apriltags3's counter-clockwise native order to the generator's
     # clockwise printed-tag TL/TR/BR/BL convention. Covered by rendered GT audit.
@@ -40,16 +40,25 @@ def detect_tags(image,K,size=.016):
             tag_derived_object_center_camera_m=(tvec.reshape(3)-rotation[:,2]*.03003).tolist(),
             reprojection_error_px=float(np.linalg.norm(proj.reshape(4,2)-uv,axis=1).mean()),
             source='apriltags3_corners_opencv_ippe',tag_size_m=size))
+    if prism_tag_mount=='six_faces':
+        for record in records:
+            record['tag_derived_object_center_camera_m']=None
+            record['object_center_status']='face_unknown_same_id_on_six_faces'
+            r=np.array(record['rotation_matrix']);t=np.array(record['tag_center_camera_m'])
+            record['object_center_candidates_camera_m']=[(t-r[:,2]*d).tolist() for d in (.01503,.03003)]
     return records
 
-def combine(image,yolo,centerpose,K,tag_size=.016):
-    tags=detect_tags(image,K,tag_size)
+def combine(image,yolo,centerpose,K,tag_size=.016,prism_tag_mount="top"):
+    tags=detect_tags(image,K,tag_size,prism_tag_mount)
     predictions=yolo.predict(image,conf=.25,iou=.45,device=0,verbose=False)[0]
     objects=[]
     for b in predictions.boxes:
         cid=int(b.cls);box=b.xyxy[0].cpu().tolist();color,shape=NAMES[cid].split('_')
         cp=infer(centerpose,image,box,K)
         candidates=[t for t in tags if box[0]<=t['center_px'][0]<=box[2] and box[1]<=t['center_px'][1]<=box[3]]
+        if prism_tag_mount=='six_faces' and len({t['id'] for t in candidates})==1:
+            # Several visible faces of the same physical object share its ID.
+            candidates=[max(candidates,key=lambda t:abs(cv2.contourArea(np.array(t['corners_px'],np.float32))))]
         # Avoid an ambiguous tag assignment when projected object boxes overlap.
         objects.append(dict(class_id=cid,shape=shape,color=color,yolo_confidence=float(b.conf),bbox_xyxy=box,
             centerpose=cp,apriltag=candidates[0] if len(candidates)==1 else None,
@@ -73,7 +82,7 @@ def main():
     meta=json.loads(a.manifest.read_text());i=meta['camera_intrinsics']
     K=np.array([[i['fx'],0,i['cx']],[0,i['fy'],i['cy']],[0,0,1]],np.float64)
     image=cv2.imread(str(a.image))
-    result=combine(image,YOLO(a.yolo),load_model(a.centerpose),K,meta['tag_size_m'])
+    result=combine(image,YOLO(a.yolo),load_model(a.centerpose),K,meta['tag_size_m'],meta.get('prism_tag_mount','top'))
     a.output.mkdir(parents=True,exist_ok=False);(a.output/'perception.json').write_text(json.dumps(result,indent=2))
     for obj in result['objects']:
         x1,y1,x2,y2=map(int,obj['bbox_xyxy']);cv2.rectangle(image,(x1,y1),(x2,y2),(0,255,255),2)

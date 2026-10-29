@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "train": 1600,
+    "val": 200,
+    "test": 300
+  },
+  "overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "train_composition": "1200 fresh six-face scenes + 400 old train scenes",
+  "old_seed_range": [
+    1000,
+    8999
+  ],
+  "new_seed_range": [
+    300000,
+    301699
+  ]
+}

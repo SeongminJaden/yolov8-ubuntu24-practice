@@ -1,0 +1,25 @@
+{
+  "scene": "/home/seongmin/Projects/yolov8-ubuntu24-practice/data/tagged-sixface-20261029/scene.usda",
+  "camera": "/World/Camera",
+  "resolution": [
+    640,
+    640
+  ],
+  "domain": 77,
+  "bridge_ros_distro": "jazzy",
+  "renderer": "RaytracedLighting",
+  "image_topic": "/pucks/image",
+  "camera_info_topic": "/pucks/camera_info",
+  "receiver_verified": false,
+  "render_updates": 1937,
+  "usd_intrinsics": {
+    "focal_length": 24.0,
+    "horizontal_aperture": 20.954999923706055,
+    "vertical_aperture": 20.954999923706055,
+    "expected_fx": 732.9992868491247,
+    "expected_fy": 732.9992868491247,
+    "note": "Expected focal pixels only; native CameraInfo contains full K/P."
+  },
+  "elapsed_seconds": 65.02286914199976,
+  "status": "render_loop_completed_receiver_validation_required"
+}

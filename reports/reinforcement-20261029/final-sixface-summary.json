@@ -1,0 +1,65 @@
+{
+  "ground_truth_objects": 1088,
+  "yolo_unique_class_matches": 1085,
+  "centerpose_valid_poses": 1084,
+  "centerpose_center_error_mm": {
+    "count": 1084,
+    "median": 2.1776599536043664,
+    "p95": 9.839149873968635
+  },
+  "centerpose_center_error_px": {
+    "count": 1085,
+    "median": 0.3378093150866355,
+    "p95": 1.4675792737592148
+  },
+  "centerpose_rotation_error_deg": {
+    "count": 1084,
+    "median": 90.58791393033468,
+    "p95": 179.76781271024973
+  },
+  "centerpose_rotation_modulo90_error_deg": {
+    "count": 1084,
+    "median": 1.3132062005161638,
+    "p95": 4.30899209232256
+  },
+  "cylinder_axis_error_deg": {
+    "count": 543,
+    "median": 0.35814555285181243,
+    "p95": 1.3351949388978286
+  },
+  "tag_ground_truth": 1088,
+  "tag_id_matches": 1015,
+  "tag_unexpected_ids": 0,
+  "tag_position_error_mm": {
+    "count": 1015,
+    "median": 7.929523821984138,
+    "p95": 15.856576921043976
+  },
+  "tag_derived_object_center_error_mm": {
+    "count": 0,
+    "median": null,
+    "p95": null
+  },
+  "associations": 985,
+  "correct_associations": 985,
+  "test_images": 300,
+  "scope": "Procedural test images; pose error conditional on valid model outputs; independence depends on dataset provenance; no real-camera claim",
+  "tags_by_class": {
+    "red_cylinder": {
+      "objects": 272,
+      "tag_found": 260
+    },
+    "red_prism": {
+      "objects": 272,
+      "tag_found": 224
+    },
+    "green_cylinder": {
+      "objects": 272,
+      "tag_found": 267
+    },
+    "green_prism": {
+      "objects": 272,
+      "tag_found": 264
+    }
+  }
+}

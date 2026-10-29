@@ -17,3 +17,9 @@ reports/tagged-pucks-v4/**/frames.jsonl
 # Local ROS workspace and generated assets
 work/
 reports/relocation-check/
+
+# Local per-frame evidence and logs from reinforcement runs
+reports/reinforcement-20261029/**/*.log
+reports/reinforcement-20261029/*.log
+reports/reinforcement-20261029/**/evaluation.json
+reports/reinforcement-20261029/generator-before.py

@@ -2,6 +2,10 @@
 
 [원문 설치 가이드](https://velog.io/@roboticsmaster/Ubuntu-24.04-YOLOv8-실습-설치-가이드)의 학습 흐름을 실행 가능한 스크립트로 새로 구현했습니다. 원문에서 언급한 배포 ZIP은 제공되지 않았으므로 그 ZIP의 코드나 12개 테스트를 복제한 저장소가 아닙니다.
 
+## 최신 6면 태그 보강 모델
+
+[눕힌 직육면체 6면 동일 ID: 결과·모델 경로·실행 명령](docs/SIX_FACE_REINFORCEMENT.md)에서 최신 구성을 확인하세요. 독립 Sim 시험에서 중심 오차 중앙값 2.18mm/P95 9.84mm를 확인했습니다. 아래 v4 기록은 이전 한 면 태그 구성입니다.
+
 ## 실습 안내
 
 처음 실행한다면 아래 문서 순서로 진행하세요. 현재 로컬 프로젝트는 `/home/seongmin/Projects/yolov8-ubuntu24-practice`입니다.
@@ -17,7 +21,7 @@
 - [실행 방법·출력 규격·인쇄용 태그](docs/TAGGED_PUCKS.md)
 - [최종 실규격 평가 결과](reports/tagged-pucks-v4/RESULTS.md)
 
-태그 기본값은 tag36h11, 검은 경계 16mm, 흰 여백 포함 20mm, 윗면 중앙입니다. CenterPose는 NVIDIA DLA34 아키텍처의 맞춤 crop 학습 경로이며, 기본 Isaac ROS CenterPose 모델과 호환되는 export가 아닙니다. 실제 RealSense 성능 및 정밀 집기 정확도는 아직 검증하지 않았습니다.
+태그는 tag36h11, 검은 경계 16mm, 흰 여백 포함 20mm입니다. 현재 생성기는 눕힌 직육면체의 6면에 동일 ID, 원기둥의 윗면에 태그를 붙입니다. 기존 v4 결과는 한 면 태그 구성입니다. CenterPose는 NVIDIA DLA34 아키텍처의 맞춤 crop 학습 경로이며, 기본 Isaac ROS CenterPose 모델과 호환되는 export가 아닙니다. 실제 RealSense 성능 및 정밀 집기 정확도는 아직 검증하지 않았습니다.
 
 ## Isaac Sim 평가와 카메라 연결
 

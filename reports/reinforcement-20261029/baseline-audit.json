@@ -1,0 +1,24 @@
+{
+  "tags_by_class": {
+    "red_cylinder": {
+      "total": 909,
+      "tag_found": 880
+    },
+    "red_prism": {
+      "total": 909,
+      "tag_found": 177
+    },
+    "green_cylinder": {
+      "total": 909,
+      "tag_found": 881
+    },
+    "green_prism": {
+      "total": 909,
+      "tag_found": 192
+    }
+  },
+  "seed_overlap": {
+    "train_val": 1000,
+    "train_test": 1000
+  }
+}

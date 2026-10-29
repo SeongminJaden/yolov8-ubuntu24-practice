@@ -1,0 +1,3 @@
+3d4de5fde0041d44c1cecc902ea26c8ab8d67ebbde6ea2c413fa34dfc4b2473d  runs/detect/tagged-sixface-reinforced-20261029/weights/best.pt
+2bfe9472c4b354d2df65e98d5f95315d5585c068daf70e453a354a2f51e13830  models/centerpose-sixface-reinforced-20261029/best.pt
+b2508a6817aa162887b8f72a4da47b6e8e71ceb840756f7de66bd72192ab5948  data/tagged-sixface-mixed-20261029/manifest.json

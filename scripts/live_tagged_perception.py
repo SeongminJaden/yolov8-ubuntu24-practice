@@ -22,6 +22,7 @@ from tagged_perception import combine
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--yolo',required=True);p.add_argument('--centerpose',required=True)
+    p.add_argument('--prism-tag-mount',choices=['top','six_faces'],default='top')
     p.add_argument('--tag-size',type=float,default=.016);p.add_argument('--seconds',type=float,default=40)
     p.add_argument('--output',type=Path,required=True)
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False);torch.set_num_threads(4)
@@ -48,7 +49,7 @@ def main():
             if any(abs(float(x))>1e-9 for x in info.d):raise RuntimeError('Use rectified RGB + matching CameraInfo; distorted stream is unsupported')
             image=np.frombuffer(m.data,np.uint8).reshape(m.height,m.step)[:,:m.width*3].reshape(m.height,m.width,3).copy()
             if m.encoding=='rgb8':image=cv2.cvtColor(image,cv2.COLOR_RGB2BGR)
-            K=np.array(info.k).reshape(3,3);result=combine(image,yolo,cp,K,a.tag_size)
+            K=np.array(info.k).reshape(3,3);result=combine(image,yolo,cp,K,a.tag_size,a.prism_tag_mount)
             result.update(frame_id=m.header.frame_id,stamp=dict(sec=m.header.stamp.sec,nanosec=m.header.stamp.nanosec))
             text=json.dumps(result);publisher.publish(String(data=text));stream.write(text+'\n');stream.flush()
             poses=PoseArray();poses.header=m.header

@@ -56,14 +56,14 @@ CenterPose의 중심은 `hm` heatmap 최대 위치와 `reg` 소수점 offset으�
 | YOLO 색 증강 | `train_yolo.py`: `hsv_h=0.0`, `hsv_s=.2`, `hsv_v=.2` | 빨강/초록이 클래스 의미이므로 hue 변환 주의 |
 | CenterPose epoch/batch | `centerpose_pucks.py --epochs/--batch` | 출력 폴더는 새 경로 |
 | CenterPose 추가 학습 | `--resume 기존/best.pt` | optimizer 복원 아닌 가중치 초기화 |
-| CenterPose 학습률 | `main()`의 `Adam(..., lr=.0005)` | 변경 전후 val loss 비교 |
+| CenterPose 학습률 | `--lr` (기본 0.0005) | 변경 전후 val loss 비교 |
 | CenterPose 유효 판정 | `infer()`의 `error<10`, `score>=.25`, 양의 깊이 | 기준을 낮춘다고 실측 정확도가 좋아지지 않음 |
 | Sim 생성 수량 | `--train/--val/--test/--video-frames` | 작은 세트는 실행 확인용 |
 | 조명·배경·시점 | 생성기의 `DomeLight`, `DistantLight`, 카메라 및 장면 무작위화 부분 | 새 데이터 생성 후 학습·평가 |
 | 태그 검은 경계 크기 | 생성기 `--tag-size`, live `--tag-size`, 이미지 manifest의 `tag_size_m` | 모두 m; 인쇄는 `make_apriltag.py --black-size-mm`로 mm |
 | 인쇄할 ID | `make_apriltag.py --id` | tag36h11 0~586, Sim 기본 patterns는 0~15 |
 | 태그 종류(family) | `tag_detector()`와 인쇄기/패턴/Sim/ROS launch 전체 | 한 군데 문자열만 바꾸면 서로 불일치 |
-| 태그 부착 위치 | `detect_tags()`의 `.03003`과 태그→물체 변환 | 옆면은 이동량만 바꾸는 것으로 충분하지 않음; 회전 포함 변환 필요 |
+| 태그 부착 위치 | 단일면 모드의 `.03003`; 6면 모드는 면 불명확으로 중심 후보 반환 | 옆면은 이동량만 바꾸는 것으로 충분하지 않음; 회전 포함 변환 필요 |
 | ROS 토픽 | live 파일의 subscribe/publish 문자열 | publisher·CameraInfo도 함께; 현재 CLI 토픽 옵션 없음 |
 | ROS domain | Sim `--domain`, receiver `ROS_DOMAIN_ID` | 동일 값 사용 |
 | Sim 설치 위치 | `run_live_tagged.sh`의 환경변수 `SIM_VENV` | Sim 실행 Python 경로도 수정 |

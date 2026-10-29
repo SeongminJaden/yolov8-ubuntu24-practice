@@ -18,6 +18,32 @@ class TaggedPoseTests(unittest.TestCase):
         # Raster corner noise makes planar tilt ambiguous; check offset direction/depth.
         self.assertAlmostEqual(tags[0]['tag_derived_object_center_camera_m'][2],.19003,delta=.001)
         self.assertLess(tags[0]['rotation_matrix'][2][2],-.99)
+    def test_six_face_same_id_has_no_unjustified_center(self):
+        from tagged_perception import detect_tags
+        image=np.full((640,640,3),255,np.uint8)
+        marker=cv2.aruco.generateImageMarker(cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_APRILTAG_36h11),0,80)
+        image[280:360,280:360]=marker[:,:,None]
+        tags=detect_tags(image,np.array([[800.,0,320],[0,800.,320],[0,0,1.]]),prism_tag_mount='six_faces')
+        self.assertIsNone(tags[0]['tag_derived_object_center_camera_m'])
+        self.assertEqual(len(tags[0]['object_center_candidates_camera_m']),2)
+
+    def test_same_id_faces_merge_but_shared_objects_remain_ambiguous(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        import torch
+        from tagged_perception import combine
+        def box():return SimpleNamespace(cls=1,conf=.9,xyxy=torch.tensor([[0.,0.,100.,100.]]))
+        tags=[dict(id=3,center_px=[20,20],corners_px=[[10,10],[30,10],[30,30],[10,30]]),
+              dict(id=3,center_px=[50,50],corners_px=[[45,45],[55,45],[55,55],[45,55]])]
+        model=SimpleNamespace(predict=lambda *a,**k:[SimpleNamespace(boxes=[box()])])
+        with patch('tagged_perception.detect_tags',return_value=tags),patch('tagged_perception.infer',return_value={}):
+            result=combine(None,model,None,None,prism_tag_mount='six_faces')
+            self.assertEqual(result['objects'][0]['association_status'],'matched')
+            self.assertEqual(result['objects'][0]['apriltag']['center_px'],[20,20])
+            model.predict=lambda *a,**k:[SimpleNamespace(boxes=[box(),box()])]
+            result=combine(None,model,None,None,prism_tag_mount='six_faces')
+            self.assertTrue(all(o['apriltag'] is None for o in result['objects']))
+
     def test_dimensions_are_exact(self):
         np.testing.assert_allclose(CORNERS.max(0)-CORNERS.min(0),[.03,.03,.06])
     def test_calibrated_cuboid_pnp_recovers_metric_center(self):

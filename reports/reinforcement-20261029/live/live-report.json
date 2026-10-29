@@ -1,0 +1,13 @@
+{
+  "paired_frames": 376,
+  "objects": 1504,
+  "centerpose_valid": 1504,
+  "associated_tags": 1504,
+  "passed_transport": true,
+  "passed_all_outputs": true,
+  "models": {
+    "yolo": "runs/detect/tagged-sixface-reinforced-20261029/weights/best.pt",
+    "centerpose": "models/centerpose-sixface-reinforced-20261029/best.pt"
+  },
+  "scope": "Transport/output counts, not ground-truth accuracy. CenterPose and tags may be invalid/missing."
+}

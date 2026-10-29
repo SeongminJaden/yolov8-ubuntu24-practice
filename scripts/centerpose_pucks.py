@@ -110,12 +110,22 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--manifest',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--resume',type=Path);p.add_argument('--epochs',type=int,default=40);p.add_argument('--batch',type=int,default=16)
+    p.add_argument('--lr',type=float,default=.0005)
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(4);torch.manual_seed(317);np.random.seed(317);random.seed(317)
-    model=load_model(a.resume) if a.resume else make_model().cuda();opt=torch.optim.Adam(model.parameters(),lr=.0005)
+    model=load_model(a.resume) if a.resume else make_model().cuda();opt=torch.optim.Adam(model.parameters(),lr=a.lr)
     train=DataLoader(Samples(a.manifest,'train'),batch_size=a.batch,shuffle=True,num_workers=0)
     val=DataLoader(Samples(a.manifest,'val'),batch_size=a.batch,num_workers=0)
     best=float('inf');history=[]
+    if a.resume:
+        model.eval();vtotal=0
+        with torch.no_grad():
+            for batch in val:
+                x,heat,ij,hps,reg=[v.cuda() for v in batch]
+                vtotal+=float(loss_for(model(x)[0],heat,ij,hps,reg))
+        best=vtotal/len(val)
+        torch.save(dict(model=model.state_dict(),epoch=0,scope='Initial weights retained unless validation improves',dimensions_m=[.03,.03,.06]),a.output/'best.pt')
+        print(dict(initial_val_loss=best),flush=True)
     for epoch in range(a.epochs):
         model.train();total=0
         for batch in train:

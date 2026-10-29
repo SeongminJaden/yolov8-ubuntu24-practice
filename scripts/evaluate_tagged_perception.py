@@ -28,7 +28,7 @@ def main():
     rows=[]
     for s in meta['samples']:
         if s['split']!='test':continue
-        image=cv2.imread(str(root/s['image']));result=combine(image,yolo,cp,K,meta['tag_size_m'])
+        image=cv2.imread(str(root/s['image']));result=combine(image,yolo,cp,K,meta['tag_size_m'],meta.get('prism_tag_mount','top'))
         total+=len(s['poses']);tag_total+=len(s['poses'])
         for truth in s['poses']:
             # One object per class in this dataset; no inference uses this truth.
@@ -50,17 +50,21 @@ def main():
                 if obj['apriltag']:
                     associations+=1;association_correct+=obj['apriltag']['id']==truth['tag_id']
             tags=[t for t in result['tags'] if t['id']==truth['tag_id']]
-            if len(tags)==1:
-                tag_matched+=1;tag=tags[0]
-                tag_mm.append(1000*np.linalg.norm(np.array(tag['tag_center_camera_m'])-np.mean(truth['tag_corners_camera_m'],axis=0)))
-                tag_object_mm.append(1000*np.linalg.norm(np.array(tag['tag_derived_object_center_camera_m'])-truth['center_camera_m']))
+            if tags:
+                tag_matched+=1
+                tag=max(tags,key=lambda t:abs(cv2.contourArea(np.array(t['corners_px'],np.float32))))
+                faces=truth.get('tag_faces',[truth])
+                face=min(faces,key=lambda f:np.linalg.norm(np.array(f['tag_corners_px'])-tag['corners_px']))
+                tag_mm.append(1000*np.linalg.norm(np.array(tag['tag_center_camera_m'])-np.mean(face['tag_corners_camera_m'],axis=0)))
+                if tag['tag_derived_object_center_camera_m'] is not None:
+                    tag_object_mm.append(1000*np.linalg.norm(np.array(tag['tag_derived_object_center_camera_m'])-truth['center_camera_m']))
         tag_wrong+=sum(t['id'] not in [g['tag_id'] for g in s['poses']] for t in result['tags'])
         rows.append(dict(image=s['image'],condition=s['condition'],prediction=result))
     report=dict(ground_truth_objects=total,yolo_unique_class_matches=matched,centerpose_valid_poses=valid,
         centerpose_center_error_mm=stats(center_mm),centerpose_center_error_px=stats(center_px),centerpose_rotation_error_deg=stats(rotation_deg),centerpose_rotation_modulo90_error_deg=stats(rotation_sym_deg),cylinder_axis_error_deg=stats(cylinder_axis_deg),
         tag_ground_truth=tag_total,tag_id_matches=tag_matched,tag_unexpected_ids=tag_wrong,tag_position_error_mm=stats(tag_mm),
         tag_derived_object_center_error_mm=stats(tag_object_mm),associations=associations,correct_associations=association_correct,
-        scope='100 held-out procedural images; pose error conditional on valid model outputs; no real-camera claim',frames=rows)
+        test_images=sum(s['split']=='test' for s in meta['samples']),scope='Procedural test images; pose error conditional on valid model outputs; independence depends on dataset provenance; no real-camera claim',frames=rows)
     (a.output/'evaluation.json').write_text(json.dumps(report,indent=2));print({k:v for k,v in report.items() if k!='frames'})
 
 if __name__=='__main__':main()
